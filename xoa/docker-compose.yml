@@ -1,0 +1,58 @@
+version: '3.7'
+services:
+  orchestra:
+    image: ezka77/xen-orchestra-ce:${TAG}
+    container_name: xen-orchestra-ce
+    restart: unless-stopped
+    depends_on:
+      - redis
+    networks:
+      - proxy
+      - redis
+    environment:
+      - DEBUG=xo:main
+      - NODE_ENV=production
+      - XOA_PLAN=5
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/xoa/xo-data:/storage
+      - ~/vm/xoa/backups:/run/mount/backups
+    logging: &default_logging
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "2"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
+      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=${TRAEFIK_LABEL}"
+      - "traefik.http.services.${TRAEFIK_LABEL}.loadbalancer.server.port=${APP_PORT}"
+      - "traefik.docker.network=proxy"
+                
+                
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    networks:
+      - redis
+    volumes:
+      - ~/vm/xoa/redis-data:/data
+    logging:
+      <<: *default_logging
+            
+            
+networks:
+  proxy:
+    external: true
+  redis:
+    external: true

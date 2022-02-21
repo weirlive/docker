@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  cloudflare-DDNS1:
+    container_name: ${CONTAINER_NAME_ONE}
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - GUID=${GUID}
+      - API_KEY=${API_KEY}
+      - ZONE=${ZONE1}
+      - PROXIED=true
+  cloudflare-DDNS2:
+    container_name: ${CONTAINER_NAME_TWO}
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - GUID=${GUID}
+      - API_KEY=${API_KEY}
+      - ZONE=${ZONE2}
+      - PROXIED=true

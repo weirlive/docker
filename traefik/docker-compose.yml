@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: traefik:${IMAGE_TAG}
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    ports:
+      - ${APP_PORT}:80
+      - ${APP_PORT2}:443
+    environment:
+      - CF_API_EMAIL=${CF_API_EMAIL}
+      - CF_API_KEY=${CF_API_KEY}
+      # be sure to use the correct one depending on if you are using a token or key
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ~/vm/traefik/data/traefik.yml:/traefik.yml:ro
+      - ~/vm/traefik/data/acme.json:/acme.json
+      - ~/vm/traefik/data/config.yml:/config.yml:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
+      - "traefik.http.middlewares.${TRAEFIK_LABEL}-auth.basicauth.users=${BASIC_AUTH_USER_PASSWORD}"
+      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.middlewares=${TRAEFIK_LABEL}-auth"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls.certresolver=${RESOLVER}"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls.domains[0].main=${LABEL_DOMAIN}"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls.domains[0].sans=*.${LABEL_DOMAIN}"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=api@internal"
+
+networks:
+  proxy:
+    external: true
