@@ -1,0 +1,55 @@
+---
+version: "3.7"
+services:
+  nginx1:
+    image: lscr.io/linuxserver/nginx:${TAG}
+    container_name: nginx-2
+    tty: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/nginx/2222:/config
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${name-1}.entrypoints=http"
+      - "traefik.http.routers.${name-1}.rule=Host(`${FQDN1}`)"
+      - "traefik.docker.network=proxy"
+
+  nginx2:
+    image: lscr.io/linuxserver/nginx:${TAG}
+    container_name: nginx-3
+    tty: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/nginx/3333:/config
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${name-2}.entrypoints=http"
+      - "traefik.http.routers.${name-2}.rule=Host(`${FQDN2}`)"
+      - "traefik.docker.network=proxy"
+
+  nginx3:
+    image: lscr.io/linuxserver/nginx:${TAG}
+    container_name: nginx-4
+    tty: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/nginx/4444:/config
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${name-3}.entrypoints=http"
+      - "traefik.http.routers.${name-3}.rule=Host(`${FQDN3}`)"
+      - "traefik.docker.network=proxy"     
+
+
+networks:
+  proxy:
+    external: true

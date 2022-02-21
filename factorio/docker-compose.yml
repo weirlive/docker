@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  factorio:
+    image: factoriotools/factorio:${TAG}
+    container_name: factorio
+    restart: unless-stopped
+    ports:
+     - "${APP_PORT}:34197/udp"
+     - "${APP_PORT2}:27015/tcp"
+    volumes:
+     - /etc/localtime:/etc/localtime:ro
+     - ~/vm/factorio:/factorio
+    environment:
+      - PUID=${PUID}
+      - PGID=${GUID}
+      - UPDATE_MODS_ON_START=true
+      - USERNAME=${USERNAME}
+      - TOKEN=${TOKEN}
+      - LOAD_LATEST_SAVE=true

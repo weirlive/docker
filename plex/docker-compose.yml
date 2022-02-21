@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:${TAG}
+    container_name: plex
+    network_mode: host
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - PUID=${PUID}
+      - PGID=${GUID}
+      - VERSION=docker
+      - 'ADVERTISE_IP=http://${IP_ADDRESS}:32400/'
+
+      
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/plex/config:/config
+      - /media/plex:/media

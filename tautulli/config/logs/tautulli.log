@@ -1,0 +1,306 @@
+2022-02-16 12:04:14 - INFO    :: MainThread : Starting Tautulli v2.9.4
+2022-02-16 12:04:14 - INFO    :: MainThread : [Docker] Linux 5.4.0-99-generic (#112-Ubuntu SMP Thu Feb 3 13:50:55 UTC 2022)
+2022-02-16 12:04:14 - INFO    :: MainThread : Europe/London (UTC+0000)
+2022-02-16 12:04:14 - INFO    :: MainThread : Python 3.9.7 (default, Nov 24 2021, 21:15:59) [GCC 10.3.1 20211027]
+2022-02-16 12:04:14 - INFO    :: MainThread : Program Dir: /app/tautulli
+2022-02-16 12:04:14 - INFO    :: MainThread : Config File: /config/config.ini
+2022-02-16 12:04:14 - INFO    :: MainThread : Database File: /config/tautulli.db
+2022-02-16 12:04:14 - INFO    :: MainThread : Checking if the database upgrades are required...
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Altering database. Updating database table notify_log.
+2022-02-16 12:04:14 - DEBUG   :: MainThread : User 'Local' does not exist. Adding user.
+2022-02-16 12:04:14 - INFO    :: MainThread : Checking if configuration upgrades are required...
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli Config :: Writing configuration to file
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Generating UUID...
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli Config :: Writing configuration to file
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Generating API key...
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli Config :: Writing configuration to file
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Generating JWT secret...
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli Config :: Writing configuration to file
+2022-02-16 12:04:14 - INFO    :: MainThread : Retrieving latest version information from GitHub
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Requesting URL via GET method: https://api.github.com/repos/Tautulli/Tautulli/commits/master
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Latest version is cfd1bf445f7f5332b9183d98ea8893f325c5ca92
+2022-02-16 12:04:14 - INFO    :: MainThread : Comparing currently installed version with latest GitHub version
+2022-02-16 12:04:14 - DEBUG   :: MainThread : Requesting URL via GET method: https://api.github.com/repos/Tautulli/Tautulli/compare/v2.9.4...cfd1bf445f7f5332b9183d98ea8893f325c5ca92
+2022-02-16 12:04:14 - DEBUG   :: MainThread : In total, 0 commits behind
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli is up to date
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli NotificationHandler :: Starting background notification handler (2 threads).
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli WebStart :: Initializing Tautulli web server...
+2022-02-16 12:04:14 - WARNING :: MainThread : Tautulli WebStart :: Web server authentication is disabled!
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli WebStart :: Thread Pool Size: 10.
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli WebStart :: Starting Tautulli web server on http://0.0.0.0:8181/
+2022-02-16 12:04:14 - INFO    :: MainThread : [16/Feb/2022:12:04:14] ENGINE Serving on http://0.0.0.0:8181
+2022-02-16 12:04:14 - INFO    :: MainThread : Tautulli is ready!
+2022-02-16 12:14:06 - INFO    :: ('CP Server Thread-5',) : Tautulli Config :: Writing configuration to file
+2022-02-16 12:14:39 - INFO    :: ('CP Server Thread-13',) : Tautulli Config :: Writing configuration to file
+2022-02-16 12:14:39 - INFO    :: ('CP Server Thread-13',) : Tautulli PlexTV :: Requesting resources for server...
+2022-02-16 12:14:40 - DEBUG   :: ('CP Server Thread-13',) : Tautulli PlexTV :: Plex Pass subscription not found.
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli Config :: Writing configuration to file
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli PlexTV :: Server URL retrieved.
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli PlexTV :: Selected server: Captain's Plex (https://10-10-40-5.fe96b954af294f45a2f22d58b09f7b11.plex.direct:32400) (Linux - Version 1.25.5.5492-12f6b8c83)
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli Config :: Writing configuration to file
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli WebStart :: Restarting Tautulli web server...
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli WebStart :: Stopping Tautulli web server...
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : [16/Feb/2022:12:14:40] ENGINE Bus STOPPING
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : [16/Feb/2022:12:14:40] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8181)) shut down
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : [16/Feb/2022:12:14:40] ENGINE Bus STOPPED
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : [16/Feb/2022:12:14:40] ENGINE Bus EXITING
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : [16/Feb/2022:12:14:40] ENGINE Bus EXITED
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli WebStart :: Initializing Tautulli web server...
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli WebStart :: Web server authentication is enabled: Tautulli admin (username is 'phenom') and Plex admin.
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli WebStart :: Thread Pool Size: 10.
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : Tautulli WebStart :: Starting Tautulli web server on http://0.0.0.0:8181/
+2022-02-16 12:14:40 - INFO    :: ('CP Server Thread-13',) : [16/Feb/2022:12:14:40] ENGINE Serving on http://0.0.0.0:8181
+2022-02-16 12:14:41 - DEBUG   :: ('CP Server Thread-13',) : Tautulli Monitor :: Checking for active streams.
+2022-02-16 12:14:41 - INFO    :: Thread-26 : Tautulli WebSocket :: Opening secure websocket.
+2022-02-16 12:14:41 - INFO    :: ('CP Server Thread-13',) : Scheduled background task: Check GitHub for updates
+2022-02-16 12:14:41 - INFO    :: ('CP Server Thread-13',) : Scheduled background task: Optimize Tautulli database
+2022-02-16 12:14:41 - INFO    :: ('CP Server Thread-13',) : Scheduled background task: Backup Tautulli database
+2022-02-16 12:14:41 - INFO    :: ('CP Server Thread-13',) : Scheduled background task: Backup Tautulli config
+2022-02-16 12:14:41 - INFO    :: ('CP Server Thread-13',) : Scheduled background task: Check for server response
+2022-02-16 12:14:41 - INFO    :: Thread-27 : Tautulli Libraries :: Requesting libraries list refresh...
+2022-02-16 12:14:41 - INFO    :: Thread-28 : Tautulli Users :: Requesting users list refresh...
+2022-02-16 12:14:42 - INFO    :: Thread-28 : Tautulli Users :: Users list refreshed.
+2022-02-16 12:14:42 - INFO    :: Thread-26 : Tautulli WebSocket :: Ready
+2022-02-16 12:14:42 - INFO    :: Thread-26 : Scheduled background task: Refresh Plex server URLs
+2022-02-16 12:14:42 - INFO    :: Thread-26 : Scheduled background task: Refresh users list
+2022-02-16 12:14:42 - INFO    :: Thread-26 : Scheduled background task: Refresh libraries list
+2022-02-16 12:14:42 - INFO    :: Thread-26 : Removed background task: Check for server response
+2022-02-16 12:14:43 - INFO    :: Thread-27 : Tautulli Config :: Writing configuration to file
+2022-02-16 12:14:43 - INFO    :: Thread-27 : Tautulli Libraries :: Libraries list refreshed.
+2022-02-16 12:15:07 - DEBUG   :: ('CP Server Thread-23',) : Tautulli WebAuth :: Admin user 'Pr********r' logged into Tautulli using Plex OAuth login.
+2022-02-16 12:15:08 - INFO    :: ('CP Server Thread-19',) : Tautulli Config :: Writing configuration to file
+2022-02-16 12:15:51 - ERROR   :: ('CP Server Thread-20',) : Failed to access uri endpoint /servers/****************/sync_lists. Status code 401 Client Error: Unauthorized for url: https://plex.tv/servers/****************/sync_lists
+2022-02-16 12:15:51 - WARNING :: ('CP Server Thread-20',) : Tautulli PlexTV :: Unable to parse XML for get_synced_items: 'NoneType' object has no attribute 'getElementsByTagName'.
+2022-02-16 12:15:51 - WARNING :: ('CP Server Thread-20',) : Unable to retrieve data for get_sync.
+2022-02-16 12:16:03 - INFO    :: ('CP Server Thread-24',) : Retrieving latest version information from GitHub
+2022-02-16 12:16:03 - DEBUG   :: ('CP Server Thread-24',) : Requesting URL via GET method: https://api.github.com/repos/Tautulli/Tautulli/commits/master
+2022-02-16 12:16:03 - DEBUG   :: ('CP Server Thread-24',) : Latest version is cfd1bf445f7f5332b9183d98ea8893f325c5ca92
+2022-02-16 12:16:03 - INFO    :: ('CP Server Thread-24',) : Comparing currently installed version with latest GitHub version
+2022-02-16 12:16:03 - DEBUG   :: ('CP Server Thread-24',) : Requesting URL via GET method: https://api.github.com/repos/Tautulli/Tautulli/compare/v2.9.4...cfd1bf445f7f5332b9183d98ea8893f325c5ca92
+2022-02-16 12:16:03 - DEBUG   :: ('CP Server Thread-24',) : In total, 0 commits behind
+2022-02-16 12:16:03 - INFO    :: ('CP Server Thread-24',) : Tautulli is up to date
+2022-02-16 12:36:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33304) added to recently added queue.
+2022-02-16 12:36:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33305 , parent 33304) added to recently added queue.
+2022-02-16 12:36:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33306, grandparent 33304) added to recently added queue.
+2022-02-16 12:36:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Suits' (33304) done processing metadata.
+2022-02-16 12:36:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33307, grandparent 32475) added to recently added queue.
+2022-02-16 12:41:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (33304) after delay.
+2022-02-16 12:41:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Suits - Revenue Per Square Foot' (33306) added to Plex.
+2022-02-16 12:41:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 12:41:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (32475) after delay.
+2022-02-16 12:41:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'American Auto - Episode 1' (33307) added to Plex.
+2022-02-16 12:41:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 13:11:38 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33308 , parent 16689) added to recently added queue.
+2022-02-16 13:11:38 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33309, grandparent 16689) added to recently added queue.
+2022-02-16 13:11:55 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33310, grandparent 24785) added to recently added queue.
+2022-02-16 13:12:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33311, grandparent 22803) added to recently added queue.
+2022-02-16 13:16:38 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (16689) after delay.
+2022-02-16 13:16:38 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Hightown - Dot Dot Dot' (33309) added to Plex.
+2022-02-16 13:16:38 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 13:16:55 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (24785) after delay.
+2022-02-16 13:16:55 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'The Rookie - End Game' (33310) added to Plex.
+2022-02-16 13:16:55 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 13:17:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (22803) after delay.
+2022-02-16 13:17:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Suits - Revenue Per Square Foot' (33311) added to Plex.
+2022-02-16 13:17:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 13:41:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Black Lightning' (33312) added to recently added queue.
+2022-02-16 13:41:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Season 4' (33313 , parent 33312) added to recently added queue.
+2022-02-16 13:41:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Black Lightning S04 E09' (33314, grandparent 33312) added to recently added queue.
+2022-02-16 13:41:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33315, grandparent 32978) added to recently added queue.
+2022-02-16 13:41:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Black Lightning' (33312) done processing metadata.
+2022-02-16 13:46:39 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item 'Black Lightning' (33312) after delay.
+2022-02-16 13:46:40 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (32978) after delay.
+2022-02-16 13:46:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Black Lightning - The Book of Ruin: Chapter Four: Lyding' (33314) added to Plex.
+2022-02-16 13:46:41 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Hawkeye (2021) - So This Is Christmas?' (33315) added to Plex.
+2022-02-16 13:46:41 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 13:46:41 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 14:16:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33316 , parent 19976) added to recently added queue.
+2022-02-16 14:16:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33317, grandparent 19976) added to recently added queue.
+2022-02-16 14:16:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33318, grandparent 19976) added to recently added queue.
+2022-02-16 14:16:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33319, grandparent 19976) added to recently added queue.
+2022-02-16 14:16:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33320, grandparent 19976) added to recently added queue.
+2022-02-16 14:16:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33321, grandparent 19976) added to recently added queue.
+2022-02-16 14:16:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33322, grandparent 16582) added to recently added queue.
+2022-02-16 14:17:07 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33323, grandparent 21185) added to recently added queue.
+2022-02-16 14:17:28 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33324, grandparent 14322) added to recently added queue.
+2022-02-16 14:17:36 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33325, grandparent 22942) added to recently added queue.
+2022-02-16 14:21:42 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (19976) after delay.
+2022-02-16 14:21:42 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Ozark - Season 3' (33316) added to Plex.
+2022-02-16 14:21:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (16582) after delay.
+2022-02-16 14:21:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Hawkeye (2021) - So This Is Christmas?' (33322) added to Plex.
+2022-02-16 14:21:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 14:21:43 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 6 items to the recently_added database table.
+2022-02-16 14:22:07 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (21185) after delay.
+2022-02-16 14:22:07 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'SEAL Team - Violence of Action' (33323) added to Plex.
+2022-02-16 14:22:07 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 14:22:28 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (14322) after delay.
+2022-02-16 14:22:28 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Black Lightning - The Book of Ruin: Chapter Four: Lyding' (33324) added to Plex.
+2022-02-16 14:22:28 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 14:22:36 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (22942) after delay.
+2022-02-16 14:22:36 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Superstore - District Manager' (33325) added to Plex.
+2022-02-16 14:22:36 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 14:46:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33326 , parent 32903) added to recently added queue.
+2022-02-16 14:46:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'The Walking Dead S10 E20' (33327, grandparent 32903) added to recently added queue.
+2022-02-16 14:47:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33328 , parent 33175) added to recently added queue.
+2022-02-16 14:47:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33329, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33330, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:45 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33331, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:45 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33332, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:45 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33333, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:46 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33334, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:46 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33335, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:46 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Ozark S03 E08' (33336, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:47 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33337, grandparent 33175) added to recently added queue.
+2022-02-16 14:47:47 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33338, grandparent 33175) added to recently added queue.
+2022-02-16 14:48:15 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33339) added to recently added queue.
+2022-02-16 14:48:15 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33340 , parent 33339) added to recently added queue.
+2022-02-16 14:48:15 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33341, grandparent 33339) added to recently added queue.
+2022-02-16 14:50:09 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'SEAL Team' (33339) done processing metadata.
+2022-02-16 14:51:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (32903) after delay.
+2022-02-16 14:51:45 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'The Walking Dead - Splinter' (33327) added to Plex.
+2022-02-16 14:51:45 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 14:52:47 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (33175) after delay.
+2022-02-16 14:52:47 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Ozark - Season 3' (33328) added to Plex.
+2022-02-16 14:52:48 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 11 items to the recently_added database table.
+2022-02-16 14:53:15 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (33339) after delay.
+2022-02-16 14:53:15 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'SEAL Team - Violence of Action' (33341) added to Plex.
+2022-02-16 14:53:15 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 15:21:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33342, grandparent 19976) added to recently added queue.
+2022-02-16 15:21:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33343, grandparent 19976) added to recently added queue.
+2022-02-16 15:21:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33344, grandparent 19976) added to recently added queue.
+2022-02-16 15:21:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33345, grandparent 19976) added to recently added queue.
+2022-02-16 15:21:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33346, grandparent 19976) added to recently added queue.
+2022-02-16 15:21:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33347, grandparent 16689) added to recently added queue.
+2022-02-16 15:26:42 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (19976) after delay.
+2022-02-16 15:26:42 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Ozark - Season 3' (33316) added to Plex.
+2022-02-16 15:26:42 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (16689) after delay.
+2022-02-16 15:26:42 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 6 items to the recently_added database table.
+2022-02-16 15:26:43 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Hightown - Crack Is Wack' (33347) added to Plex.
+2022-02-16 15:26:43 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 15:51:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33348, grandparent 32475) added to recently added queue.
+2022-02-16 15:56:41 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (32475) after delay.
+2022-02-16 15:56:41 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'American Auto - Episode 25' (33348) added to Plex.
+2022-02-16 15:56:42 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 16:27:19 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33349, grandparent 18877) added to recently added queue.
+2022-02-16 16:32:19 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (18877) after delay.
+2022-02-16 16:32:19 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Marvel's Runaways - Hostile' (33349) added to Plex.
+2022-02-16 16:32:19 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 16:56:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Homeland' (33350) added to recently added queue.
+2022-02-16 16:56:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Season 8' (33351 , parent 33350) added to recently added queue.
+2022-02-16 16:56:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Homeland S08 E08' (33352, grandparent 33350) added to recently added queue.
+2022-02-16 16:56:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33353) added to recently added queue.
+2022-02-16 16:56:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33354 , parent 33353) added to recently added queue.
+2022-02-16 16:56:40 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33355, grandparent 33353) added to recently added queue.
+2022-02-16 16:56:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Homeland' (33350) done processing metadata.
+2022-02-16 16:56:41 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Marvel's Runaways' (33353) done processing metadata.
+2022-02-16 16:56:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33358) added to recently added queue.
+2022-02-16 16:56:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33359 , parent 33358) added to recently added queue.
+2022-02-16 16:56:42 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33360, grandparent 33358) added to recently added queue.
+2022-02-16 16:56:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'The Boys' (33358) done processing metadata.
+2022-02-16 16:56:47 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33362, grandparent 33111) added to recently added queue.
+2022-02-16 17:01:40 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item 'Homeland' (33350) after delay.
+2022-02-16 17:01:40 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Homeland - Threnody(s)' (33352) added to Plex.
+2022-02-16 17:01:40 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 17:01:40 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (33353) after delay.
+2022-02-16 17:01:40 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Marvel's Runaways - Hostile' (33355) added to Plex.
+2022-02-16 17:01:40 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 17:01:42 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (33358) after delay.
+2022-02-16 17:01:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'The Boys - Proper Preparation and Planning' (33360) added to Plex.
+2022-02-16 17:01:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 17:01:47 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (33111) after delay.
+2022-02-16 17:01:48 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Hightown - Small Craft Warning' (33362) added to Plex.
+2022-02-16 17:01:48 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33363 , parent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33364, grandparent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33365, grandparent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33366, grandparent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33367, grandparent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33368, grandparent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33369, grandparent 20445) added to recently added queue.
+2022-02-16 17:31:39 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33370, grandparent 23613) added to recently added queue.
+2022-02-16 17:31:58 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33371, grandparent 24899) added to recently added queue.
+2022-02-16 17:32:27 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33372, grandparent 16928) added to recently added queue.
+2022-02-16 17:36:39 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (20445) after delay.
+2022-02-16 17:36:39 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Raised by Wolves (2020) - Season 2' (33363) added to Plex.
+2022-02-16 17:36:39 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (23613) after delay.
+2022-02-16 17:36:40 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'The Boys - Proper Preparation and Planning' (33370) added to Plex.
+2022-02-16 17:36:40 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 7 items to the recently_added database table.
+2022-02-16 17:36:40 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 17:36:58 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (24899) after delay.
+2022-02-16 17:36:58 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'The Walking Dead - Beside the Dying Fire' (33371) added to Plex.
+2022-02-16 17:36:58 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 17:37:27 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (16928) after delay.
+2022-02-16 17:37:27 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Homeland - Threnody(s)' (33372) added to Plex.
+2022-02-16 17:37:27 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 1 items to the recently_added database table.
+2022-02-16 18:01:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Season 2' (33373 , parent 32903) added to recently added queue.
+2022-02-16 18:01:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'The Walking Dead S02 E13' (33374, grandparent 32903) added to recently added queue.
+2022-02-16 18:01:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33375) added to recently added queue.
+2022-02-16 18:01:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33376 , parent 33375) added to recently added queue.
+2022-02-16 18:01:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33377, grandparent 33375) added to recently added queue.
+2022-02-16 18:01:43 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33378, grandparent 33375) added to recently added queue.
+2022-02-16 18:01:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33379, grandparent 33375) added to recently added queue.
+2022-02-16 18:01:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33380, grandparent 33375) added to recently added queue.
+2022-02-16 18:01:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33381, grandparent 33375) added to recently added queue.
+2022-02-16 18:01:44 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33382, grandparent 33375) added to recently added queue.
+2022-02-16 18:01:46 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item 'Raised by Wolves' (33375) done processing metadata.
+2022-02-16 18:06:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item 'Season 2' (32903) after delay.
+2022-02-16 18:06:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'The Walking Dead - Beside the Dying Fire' (33374) added to Plex.
+2022-02-16 18:06:43 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 1 items to the recently_added database table.
+2022-02-16 18:06:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Starting callback for library item '' (33375) after delay.
+2022-02-16 18:06:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Tautulli TimelineHandler :: Library item 'Raised by Wolves - Season 2' (33376) added to Plex.
+2022-02-16 18:06:44 - DEBUG   :: ThreadPoolExecutor-0_0 : Added 7 items to the recently_added database table.
+2022-02-16 18:14:41 - INFO    :: ThreadPoolExecutor-2_0 : Retrieving latest version information from GitHub
+2022-02-16 18:14:41 - DEBUG   :: ThreadPoolExecutor-2_0 : Requesting URL via GET method: https://api.github.com/repos/Tautulli/Tautulli/commits/master
+2022-02-16 18:14:41 - DEBUG   :: ThreadPoolExecutor-2_1 : Tautulli Database :: Successfully backed up /config/tautulli.db to tautulli.backup-20220216181441.sched.db
+2022-02-16 18:14:41 - INFO    :: ThreadPoolExecutor-2_2 : Tautulli Config :: Writing configuration to file
+2022-02-16 18:14:41 - DEBUG   :: ThreadPoolExecutor-2_2 : Tautulli Config :: Successfully backed up /config/config.ini to config.backup-20220216181441.sched.ini
+2022-02-16 18:14:41 - DEBUG   :: ThreadPoolExecutor-2_0 : Latest version is cfd1bf445f7f5332b9183d98ea8893f325c5ca92
+2022-02-16 18:14:41 - INFO    :: ThreadPoolExecutor-2_0 : Comparing currently installed version with latest GitHub version
+2022-02-16 18:14:41 - DEBUG   :: ThreadPoolExecutor-2_0 : Requesting URL via GET method: https://api.github.com/repos/Tautulli/Tautulli/compare/v2.9.4...cfd1bf445f7f5332b9183d98ea8893f325c5ca92
+2022-02-16 18:14:41 - DEBUG   :: ThreadPoolExecutor-2_0 : In total, 0 commits behind
+2022-02-16 18:14:41 - INFO    :: ThreadPoolExecutor-2_0 : Tautulli is up to date
+2022-02-16 20:11:50 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33383 , parent 32962) added to recently added queue.
+2022-02-16 20:11:50 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33384, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:50 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33385, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:50 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33386, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:50 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33387, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:51 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33388, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:51 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33389, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:51 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33390, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:51 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33391, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:51 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33392, grandparent 32962) added to recently added queue.
+2022-02-16 20:11:52 - DEBUG   :: Thread-26 : Tautulli TimelineHandler :: Library item '' (33393, grandparent 32962) added to recently added queue.
+2022-02-16 20:16:52 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Starting callback for library item '' (32962) after delay.
+2022-02-16 20:16:52 - DEBUG   :: ThreadPoolExecutor-0_1 : Tautulli TimelineHandler :: Library item 'Snowpiercer - Season 2' (33383) added to Plex.
+2022-02-16 20:16:52 - DEBUG   :: ThreadPoolExecutor-0_1 : Added 11 items to the recently_added database table.
+2022-02-16 20:39:36 - WARNING :: Thread-26 : Tautulli WebSocket :: Connection has closed.
+2022-02-16 20:39:36 - WARNING :: Thread-26 : Tautulli WebSocket :: Reconnection attempt 1.
+2022-02-16 20:39:36 - ERROR   :: Thread-26 : Tautulli WebSocket :: [Errno 111] Connection refused.
+2022-02-16 20:39:41 - WARNING :: Thread-26 : Tautulli WebSocket :: Reconnection attempt 2.
+2022-02-16 20:39:41 - ERROR   :: Thread-26 : Tautulli WebSocket :: [Errno 111] Connection refused.
+2022-02-16 20:39:46 - WARNING :: Thread-26 : Tautulli WebSocket :: Reconnection attempt 3.
+2022-02-16 20:39:46 - ERROR   :: Thread-26 : Tautulli WebSocket :: [Errno 111] Connection refused.
+2022-02-16 20:39:51 - WARNING :: Thread-26 : Tautulli WebSocket :: Reconnection attempt 4.
+2022-02-16 20:39:52 - ERROR   :: Thread-26 : Tautulli WebSocket :: [Errno 111] Connection refused.
+2022-02-16 20:39:57 - WARNING :: Thread-26 : Tautulli WebSocket :: Reconnection attempt 5.
+2022-02-16 20:39:57 - ERROR   :: Thread-26 : Tautulli WebSocket :: [Errno 111] Connection refused.
+2022-02-16 20:39:57 - INFO    :: Thread-26 : Tautulli WebSocket :: Disconnecting websocket...
+2022-02-16 20:39:57 - INFO    :: Thread-26 : Tautulli WebSocket :: Unable to get a response from the server, Plex server is down.
+2022-02-16 20:39:57 - DEBUG   :: Thread-26 : Tautulli WebSocket :: Scheduling Plex server down callback in 60 seconds.
+2022-02-16 20:39:57 - INFO    :: Thread-26 : Removed background task: Refresh Plex server URLs
+2022-02-16 20:39:57 - INFO    :: Thread-26 : Removed background task: Refresh users list
+2022-02-16 20:39:57 - INFO    :: Thread-26 : Removed background task: Refresh libraries list
+2022-02-16 20:39:57 - INFO    :: Thread-26 : Scheduled background task: Check for server response
+2022-02-16 20:39:57 - DEBUG   :: Thread-26 : Tautulli WebSocket :: Leaving thread.
+2022-02-16 20:39:57 - INFO    :: MainThread : Signal 15 caught, saving and exiting...
+2022-02-16 20:39:57 - INFO    :: MainThread : Tautulli WebStart :: Stopping Tautulli web server...
+2022-02-16 20:39:57 - INFO    :: MainThread : [16/Feb/2022:20:39:57] ENGINE Bus STOPPING
+2022-02-16 20:39:57 - INFO    :: MainThread : [16/Feb/2022:20:39:57] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8181)) shut down
+2022-02-16 20:39:57 - INFO    :: MainThread : [16/Feb/2022:20:39:57] ENGINE Bus STOPPED
+2022-02-16 20:39:57 - INFO    :: MainThread : [16/Feb/2022:20:39:57] ENGINE Bus EXITING
+2022-02-16 20:39:57 - INFO    :: MainThread : [16/Feb/2022:20:39:57] ENGINE Bus EXITED
+2022-02-16 20:39:57 - INFO    :: MainThread : Tautulli WebSocket :: Disconnecting websocket...
+2022-02-16 20:39:57 - INFO    :: MainThread : Tautulli Config :: Writing configuration to file
+2022-02-16 20:39:57 - INFO    :: Thread-2 : Tautulli NotificationHandler :: Notification thread exiting...
+2022-02-16 20:39:57 - INFO    :: Thread-3 : Tautulli NotificationHandler :: Notification thread exiting...
+2022-02-16 20:39:57 - INFO    :: MainThread : Tautulli is shutting down...
