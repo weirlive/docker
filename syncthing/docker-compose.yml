@@ -12,6 +12,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ~/vm/syncthing/config:/config
+      - ~/vm:/vm
     ports:
       - 22000:22000/tcp
       - 22000:22000/udp
