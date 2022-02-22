@@ -13,6 +13,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ~/vm/syncthing/config:/config
       - ~/vm:/vm
+      - ~/Sync:/Sync
     ports:
       - 22000:22000/tcp
       - 22000:22000/udp
