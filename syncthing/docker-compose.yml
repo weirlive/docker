@@ -1,21 +1,36 @@
 ---
-version: "2.1"
+version: "3.7"
 services:
   syncthing:
-    image: lscr.io/linuxserver/syncthing
+    image: lscr.io/linuxserver/syncthing:${TAG}
     container_name: syncthing
-    hostname: syncthing #optional
+    networks:
+      - proxy
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
+      - PUID=${PUID}
+      - PGID=${PGID}
     volumes:
-      - /path/to/appdata/config:/config
-      - /path/to/data1:/data1
-      - /path/to/data2:/data2
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/syncthing/config:/config
     ports:
-      - 8384:8384
       - 22000:22000/tcp
       - 22000:22000/udp
       - 21027:21027/udp
+
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
+      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=${TRAEFIK_LABEL}"
+      - "traefik.http.services.${TRAEFIK_LABEL}.loadbalancer.server.port=${APP_PORT}"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true
