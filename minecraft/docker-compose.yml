@@ -3,7 +3,7 @@ version: "3.7"
 services:
   minecraft:
     image: minecraftservers/minecraft-server
-    name: minecraft
+    container_name: minecraft
     ports:
       - ${APP_PORT}:25565
     environment:
