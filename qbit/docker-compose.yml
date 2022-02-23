@@ -11,13 +11,13 @@ services:
       networks:
         - proxy
       environment:
-        - "VPN_ENABLED=${VPN_ENABLED}"
+        - "VPN_ENABLED=yes"
         - "LAN_NETWORK=${LAN_NETWORK}"
         - "LAN_NETWORK=${LAN_NETWORK2}"
         - "NAME_SERVERS=${NAME_SERVERS}"
         - "WEBUI_PORT_ENV=${WEBUI_PORT_ENV}"
         - "PGID=${PGID}"
-        - "PUID=${PUID}"            
+        - "PUID=${PUID}"      
       cap_add: 
         - NET_ADMIN
       devices:
