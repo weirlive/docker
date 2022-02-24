@@ -173,7 +173,7 @@
 	
 	Bind Mounts
 		Link container path to host path		
-		 # docker container run -d --name "name" -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /user/phenom/mysql:/var/lib/mysql "image"
+		 # docker container run -d --name "name" -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v ~/mysql:/var/lib/mysql "image"
 		
 	
 		
