@@ -1,4 +1,4 @@
-# How to Setup docker:
+# How to Setup docker
 
 # Install docker:
 	https://docs.docker.com/engine/install/ubuntu/
