@@ -6,6 +6,7 @@
 # Install docker Machine
 	https://docs.docker.com/machine/install-machine/
 
+<<<<<<< HEAD
 # Install docker Compose
 	https://docs.docker.com/compose/install/
 	
@@ -220,6 +221,9 @@
 			# docker-compose logs
 
 # env file
+=======
+env file
+>>>>>>> b9d2904ddc9cea62544451b4df11080363692df5
 
     Commands:
 
