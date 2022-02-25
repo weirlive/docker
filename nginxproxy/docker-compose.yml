@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  nginxproxy:
+    image: 'jc21/nginx-proxy-manager:${TAG}'
+    container_name: nginxproxy
+    ports:
+      - '${APP_PORT1}:80'
+      - '${APP_PORT2}:81'
+      - '${APP_PORT3}:443'
+    networks:
+      - proxy
+      - mysql
+    environment:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: ${DB_MYSQL_PORT}
+      DB_MYSQL_USER: ${DB_MYSQL_USER}
+      DB_MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
+      DB_MYSQL_NAME: ${DB_MYSQL_NAME}
+    volumes:
+      - ~/vm/nginxproxy/data:/data
+      - ~/vm/nginxproxy/letsencrypt:/etc/letsencrypt
+  db:
+    image: 'jc21/mariadb-aria:${TAG}'
+    container_name: mysql-db
+    networks:
+      - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${DB_MYSQL_NAME}
+      MYSQL_USER: ${DB_MYSQL_USER}
+      MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
+    volumes:
+      - ~/vm/nginxproxy/mysql:/var/lib/mysql
+
+networks:
+  proxy:
+    external: true
+  mysql:
+    external: true

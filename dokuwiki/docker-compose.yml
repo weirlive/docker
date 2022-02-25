@@ -1,7 +1,7 @@
 ---
 version: "3.7"
 services:
-  sonarr:
+  dokuwiki:
     image: lscr.io/linuxserver/dokuwiki:${TAG}
     container_name: dokuwiki
     networks:
@@ -9,10 +9,10 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - NAME_SERVERS=${NAME_SERVERS}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/sonarr/config:/config
-      - /media/plex:/plex
+      - ~/vm/dokuwiki/config:/config
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
