@@ -11,7 +11,7 @@ services:
       networks:
         - proxy
       environment:
-        - "VPN_ENABLED=yes"
+        - "VPN_ENABLED=${VPN_ENABLED}"
         - "LAN_NETWORK=${LAN_NETWORK}"
         - "LAN_NETWORK=${LAN_NETWORK2}"
         - "NAME_SERVERS=${NAME_SERVERS}"
