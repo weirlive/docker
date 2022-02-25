@@ -9,6 +9,8 @@ services:
     networks:
       - proxy
       - redis
+    ports:
+      - ${APP_PORT}:8000
     environment:
       - DEBUG=xo:main
       - NODE_ENV=production
@@ -24,18 +26,6 @@ services:
       options:
         max-size: "1M"
         max-file: "2"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
-      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=portainer-https-redirect"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=${TRAEFIK_LABEL}"
-      - "traefik.http.services.${TRAEFIK_LABEL}.loadbalancer.server.port=${APP_PORT}"
-      - "traefik.docker.network=proxy"
                 
                 
   redis:
