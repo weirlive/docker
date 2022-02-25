@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
   portainer:
@@ -9,6 +9,8 @@ services:
       - no-new-privileges:true
     networks:
       - proxy
+    ports:
+      - ${APP_PORT}:9000
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
