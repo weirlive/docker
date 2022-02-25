@@ -1,0 +1,32 @@
+---
+version: "3.7"
+services:
+  sonarr:
+    image: lscr.io/linuxserver/dokuwiki:${TAG}
+    container_name: dokuwiki
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/sonarr/config:/config
+      - /media/plex:/plex
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
+      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
+      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=${TRAEFIK_LABEL}"
+      - "traefik.http.services.${TRAEFIK_LABEL}.loadbalancer.server.port=${APP_PORT}"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true
