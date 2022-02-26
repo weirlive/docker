@@ -1,17 +1,19 @@
 ---
-version: "3"
+version: "3.1"
 
 services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
     volumes:
-      - /etc/localtime:/etc/localtime:ro
       - ~/vm/uptime-kuma/data:/app/data
     ports:
       - 3001:3001
     networks:
       - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true

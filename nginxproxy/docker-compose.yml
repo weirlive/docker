@@ -11,6 +11,8 @@ services:
       - proxy
       - mysql
     environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: ${DB_MYSQL_PORT}
       DB_MYSQL_USER: ${DB_MYSQL_USER}
@@ -25,6 +27,8 @@ services:
     networks:
       - mysql
     environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
       MYSQL_ROOT_PASSWORD: ${DB_MYSQL_PASSWORD}
       MYSQL_DATABASE: ${DB_MYSQL_NAME}
       MYSQL_USER: ${DB_MYSQL_USER}
