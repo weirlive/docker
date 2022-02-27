@@ -11,13 +11,15 @@ services:
       networks:
         - proxy
       ports:
-        - ${APP_PORT}:8080
+        - "${APP_PORT1}:8080"
+        - "${APP_PORT2}:8999"
+        - "${APP_PORT3}:8999/udp"
       environment:
         - "VPN_ENABLED=${VPN_ENABLED}"
         - "LAN_NETWORK=${LAN_NETWORK}"
         - "LAN_NETWORK=${LAN_NETWORK2}"
         - "NAME_SERVERS=${NAME_SERVERS}"
-        - "WEBUI_PORT_ENV=${WEBUI_PORT_ENV}"
+        - "WEBUI_PORT_ENV=${APP_PORT1}"
         - "PGID=${PGID}"
         - "PUID=${PUID}"      
       cap_add: 
