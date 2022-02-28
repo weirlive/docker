@@ -10,30 +10,23 @@ services:
       restart: unless-stopped
       networks:
         - proxy
+      ports:
+        - "${APP_PORT1}:8080"
+        - "${APP_PORT2}:8999"
+        - "${APP_PORT3}:8999/udp"
       environment:
         - "VPN_ENABLED=${VPN_ENABLED}"
         - "LAN_NETWORK=${LAN_NETWORK}"
-        - "LAN_NETWORK=${LAN_NETWORK2}"
         - "NAME_SERVERS=${NAME_SERVERS}"
-        - "WEBUI_PORT_ENV=${WEBUI_PORT_ENV}"
+        - "WEBUI_PORT_ENV=${APP_PORT1}"
         - "PGID=${PGID}"
         - "PUID=${PUID}"      
       cap_add: 
         - NET_ADMIN
       devices:
-        - /dev/net/tun            
-      labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
-      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=portainer-https-redirect"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=${TRAEFIK_LABEL}"
-      - "traefik.http.services.${TRAEFIK_LABEL}.loadbalancer.server.port=${APP_PORT}"
-      - "traefik.docker.network=proxy"
+        - /dev/net/tun
+      sysctls:
+        - net.ipv6.conf.all.disable_ipv6=1       
 
 networks:
   proxy:
