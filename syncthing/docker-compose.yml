@@ -6,21 +6,23 @@ services:
     container_name: syncthing
     networks:
       - proxy
+      - syncthing
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+    ports:
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ~/vm/syncthing/config:/config
       - ~/vm:/vm
-    ports:
-      - ${APP_PORT}:8384/tcp
-      - 22000:22000/tcp
-      - 22000:22000/udp
-      - 21027:21027/udp
 
     restart: unless-stopped
 
 networks:
   proxy:
+    external: true
+  syncthing:
     external: true

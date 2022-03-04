@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   traefik:
-    image: traefik:${IMAGE_TAG}
+    image: traefik:${TAG}
     container_name: traefik
     restart: unless-stopped
     security_opt:
@@ -14,8 +14,7 @@ services:
       - ${APP_PORT2}:443
     environment:
       - CF_API_EMAIL=${CF_API_EMAIL}
-      - CF_API_KEY=${CF_API_KEY}
-      # be sure to use the correct one depending on if you are using a token or key
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
