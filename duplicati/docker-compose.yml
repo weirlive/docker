@@ -1,0 +1,23 @@
+---
+version: "3.7"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ~/vm/duplicati/config:/config
+      - ~/duplicati/trust:/backups
+      - ~/vm:/source
+    networks:
+      - proxy
+    ports:
+      - ${APP_PORT}:8200
+    restart: unless-stopped
+
+
+networks:
+  proxy:
+    external: true
