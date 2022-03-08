@@ -9,6 +9,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - "NAME_SERVERS=${NAME_SERVERS}"
     ports:
      - ${APP_PORT}:7878
     volumes:

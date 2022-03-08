@@ -17,6 +17,7 @@ services:
       environment:
         - "VPN_ENABLED=${VPN_ENABLED}"
         - "LAN_NETWORK=${LAN_NETWORK}"
+        - "NAME_SERVERS=${NAME_SERVER}"
         - "WEBUI_PORT_ENV=${APP_PORT1}"
         - "PGID=${PGID}"
         - "PUID=${PUID}"      
