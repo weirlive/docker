@@ -1,43 +1,49 @@
-# WARNING: Replace the example passwords with secure secrets.
-# WARNING: 'my_secret_phpipam_pass' and 'my_secret_mysql_root_pass'
-
-version: '3'
+version: '3.7'
 
 services:
   phpipam-web:
-    image: phpipam/phpipam-www:latest
+    image: phpipam/phpipam-www:${TAG}
     ports:
-      - "80:80"
+      - "${APP_PORT}:80"
     environment:
-      - TZ=Europe/London
       - IPAM_DATABASE_HOST=phpipam-mariadb
-      - IPAM_DATABASE_PASS=my_secret_phpipam_pass
+      - IPAM_DATABASE_PASS=${IPAM_DATABASE_PASS}
       - IPAM_DATABASE_WEBHOST=%
     restart: unless-stopped
+    networks:
+      - proxy
+      - mysql2
     volumes:
-      - phpipam-logo:/phpipam/css/images/logo
+      - /etc/localtime:/etc/localtime:ro
+      - ~/vm/phpipam/logo:/phpipam/css/images/logo
     depends_on:
       - phpipam-mariadb
 
   phpipam-cron:
-    image: phpipam/phpipam-cron:latest
+    image: phpipam/phpipam-cron:${TAG}
     environment:
-      - TZ=Europe/London
+      - /etc/localtime:/etc/localtime:ro
       - IPAM_DATABASE_HOST=phpipam-mariadb
-      - IPAM_DATABASE_PASS=my_secret_phpipam_pass
+      - IPAM_DATABASE_PASS=${IPAM_DATABASE_PASS}
       - SCAN_INTERVAL=1h
     restart: unless-stopped
+    networks:
+      - mysql2
     depends_on:
       - phpipam-mariadb
 
   phpipam-mariadb:
-    image: mariadb:latest
+    image: mariadb:${TAG}
     environment:
-      - MYSQL_ROOT_PASSWORD=my_secret_mysql_root_pass
+      - MYSQL_ROOT_PASSWORD=${IPAM_DATABASE_PASS}
     restart: unless-stopped
+    networks:
+      - mysql2
     volumes:
-      - phpipam-db-data:/var/lib/mysql
+      - ~/vm/phpipam/mysql:/var/lib/mysql
 
-volumes:
-  phpipam-db-data:
-  phpipam-logo:
+networks:
+  proxy:
+    external: true
+  mysql2:
+    external: true
