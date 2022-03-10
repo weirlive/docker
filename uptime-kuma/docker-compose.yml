@@ -9,11 +9,10 @@ services:
       - ~/vm/uptime-kuma/data:/app/data
     ports:
       - 3001:3001
+    environment:
+      - "NAME_SERVERS=${NAME_SERVERS}"
     networks:
       - proxy
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
