@@ -12,8 +12,7 @@ services:
       - PUID=${PUID}
       - PGID=${GUID}
       - VERSION=docker
-      - 'ADVERTISE_IP=http://${IP_ADDRESS}:32400/'
-
+      - 'ADVERTISE_IP=https://${IP_ADDRESS}:32400/'
       
     volumes:
       - /etc/localtime:/etc/localtime:ro

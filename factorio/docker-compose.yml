@@ -12,7 +12,7 @@ services:
      - ~/vm/factorio:/factorio
     environment:
       - PUID=${PUID}
-      - PGID=${GUID}
+      - PGID=${PGID}
       - UPDATE_MODS_ON_START=true
       - USERNAME=${USERNAME}
       - TOKEN=${TOKEN}

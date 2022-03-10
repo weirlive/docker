@@ -1,9 +1,9 @@
 ---
 version: "3.7"
 services:
-  dokuwiki:
-    image: lscr.io/linuxserver/dokuwiki:${TAG}
-    container_name: dokuwiki
+  wikijs:
+    image: lscr.io/linuxserver/wikijs
+    container_name: wikijs
     networks:
       - proxy
     environment:
@@ -12,11 +12,12 @@ services:
       - NAME_SERVERS=${NAME_SERVERS}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/dokuwiki/config:/config
-    restart: unless-stopped
+      - ~/vm/wiki/config:/config
+      - ~/vm/wiki/data:/data
     ports:
-      - 8080:80
+      - 3000:3000
+    restart: unless-stopped
 
 networks:
   proxy:
-    external: true
+    external: true 
