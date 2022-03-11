@@ -15,6 +15,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - AUTO_UPDATE=true #optional
+      - NAMESERVER=${NAMESERVER}
     networks:
       - proxy
 

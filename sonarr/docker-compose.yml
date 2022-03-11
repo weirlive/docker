@@ -11,7 +11,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - "NAME_SERVERS=${NAME_SERVERS}"
+      - NAME_SERVERS=${NAME_SERVERS}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ~/vm/sonarr/config:/config
