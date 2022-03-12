@@ -2,25 +2,27 @@
 version: '3.7'
 services:
     qbit:
-      image: markusmcnugen/qbittorrentvpn:${TAG}
+      image: markusmcnugen/qbittorrentvpn
       container_name: qbit
       volumes:
         - ~/vm/qbit/config:/config
         - /media/plex/new_downloads:/downloads
       restart: unless-stopped
+      privileged: true
       networks:
         - proxy
       ports:
-        - "${APP_PORT1}:8080"
-        - "${APP_PORT2}:8999"
-        - "${APP_PORT3}:8999/udp"
+        - "8080:8080"
+        - "8999:8999"
+        - "8999:8999/udp"
       environment:
-        - "VPN_ENABLED=${VPN_ENABLED}"
-        - "LAN_NETWORK=${LAN_NETWORK}"
-        -  NAME_SERVERS=${NAME_SERVER}
-        - "WEBUI_PORT_ENV=${APP_PORT1}"
-        - "PGID=${PGID}"
-        - "PUID=${PUID}"      
+        - VPN_ENABLED=${VPN_ENABLED}
+        - LAN_NETWORK=${LAN_NETWORK}
+        - NAME_SERVERS=${NAME_SERVER}
+        - WEBUI_PORT_ENV=${APP_PORT1}
+        - INCOMING_PORt_ENV=${APP_PORT2}
+        - PGID=${PGID}
+        - PUID=${PUID}     
       cap_add: 
         - NET_ADMIN
       devices:
