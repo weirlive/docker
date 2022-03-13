@@ -13,8 +13,11 @@ services:
       - PGID=${GUID}
       - VERSION=docker
       - 'ADVERTISE_IP=https://${IP_ADDRESS}:32400/'
+    devices:
+      - /dev/dri:/dev/dri
       
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ~/vm/plex/config:/config
+      - ~/vm/plex/dev/shm:/dev/shm
       - /media/plex:/media
