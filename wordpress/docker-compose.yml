@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    networks:
+      - proxy
+      - mysql_wordpress
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: test
+      WORDPRESS_DB_PASSWORD: test
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ~/vm/wordpress/config:/var/www/html
+  mysql:
+    image: mysql:5.7
+    container_name: wp_mysql
+    restart: unless-stopped
+    networks:
+      - mysql_wordpress
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - ~/vm/wordpress/mysql:/var/lib/mysql
+
+
+networks:
+  proxy:
+    external: true
+  mysql_wordpress:
+    external: true
