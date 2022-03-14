@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   plex:
-    image: lscr.io/linuxserver/plex:${TAG}
+    image: lscr.io/linuxserver/plex
     container_name: plex
     network_mode: host
     restart: unless-stopped
@@ -13,8 +13,6 @@ services:
       - PGID=${GUID}
       - VERSION=docker
       - 'ADVERTISE_IP=https://${IP_ADDRESS}:32400/'
-    devices:
-      - /dev/dri:/dev/dri
       
     volumes:
       - /etc/localtime:/etc/localtime:ro
