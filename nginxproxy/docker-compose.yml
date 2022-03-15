@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   nginxproxy:
-    image: jc21/nginx-proxy-manager
+    image: jc21/nginx-proxy-manager:latest
     container_name: nginxproxy
     ports:
       - '${APP_PORT1}:80'
@@ -22,7 +22,7 @@ services:
       - ~/vm/nginxproxy/data:/data
       - ~/vm/nginxproxy/letsencrypt:/etc/letsencrypt
   db:
-    image: ßjc21/mariadb-aria
+    image: ßjc21/mariadb-aria:latest
     container_name: mysql-db
     networks:
       - mysql-npm
