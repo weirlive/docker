@@ -22,7 +22,7 @@ services:
       - ~/vm/nginxproxy/data:/data
       - ~/vm/nginxproxy/letsencrypt:/etc/letsencrypt
   db:
-    image: ßjc21/mariadb-aria:latest
+    image: jc21/mariadb-aria:latest
     container_name: mysql-db
     networks:
       - mysql-npm
