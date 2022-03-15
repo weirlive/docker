@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   orchestra:
-    image: ezka77/xen-orchestra-ce:${TAG}
+    image: ezka77/xen-orchestra-ce
     container_name: xen-orchestra-ce
     restart: unless-stopped
     depends_on:
@@ -10,7 +10,7 @@ services:
       - proxy
       - redis
     ports:
-      - ${APP_PORT}:8000
+      - 8001:8000
     environment:
       - DEBUG=xo:main
       - NODE_ENV=production
