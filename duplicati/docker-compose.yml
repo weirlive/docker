@@ -14,7 +14,7 @@ services:
     networks:
       - proxy
     ports:
-      - ${APP_PORT}:8200
+      - 8200:8200
     restart: unless-stopped
 
 
