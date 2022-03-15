@@ -10,7 +10,7 @@ services:
       - proxy
       - redis
     ports:
-      - 8001:8000
+      - 8002:8000
     environment:
       - DEBUG=xo:main
       - NODE_ENV=production
