@@ -2,11 +2,7 @@ version: '3.7'
 
 services:
   portainer:
-<<<<<<< HEAD
     image: portainer/portainer-ee
-=======
-    image: portainer/portainer-ce
->>>>>>> 21e0943a13e2400ae0cd915390f55172e0be28e1
     container_name: portainer
     restart: unless-stopped
     security_opt:
