@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   portainer:
-    image: portainer/portainer-ce:${TAG}
+    image: portainer/portainer-ee
     container_name: portainer
     restart: unless-stopped
     security_opt:
@@ -10,7 +10,7 @@ services:
     networks:
       - proxy
     ports:
-      - ${APP_PORT}:9000
+      - 9000:9000
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
