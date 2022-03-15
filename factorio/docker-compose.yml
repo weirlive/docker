@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   factorio:
-    image: factoriotools/factorio:${TAG}
+    image: factoriotools/factorio
     container_name: factorio
     restart: unless-stopped
     ports:

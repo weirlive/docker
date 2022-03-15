@@ -18,7 +18,7 @@ services:
     volumes:
       - ~/vm/wordpress/config:/var/www/html
   mysql:
-    image: mysql:5.7
+    image: mysql:latest
     container_name: wp_mysql
     restart: unless-stopped
     networks:

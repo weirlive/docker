@@ -2,7 +2,7 @@
 version: "3.7"
 services:
   syncthing:
-    image: lscr.io/linuxserver/syncthing:${TAG}
+    image: lscr.io/linuxserver/syncthing
     container_name: syncthing
     networks:
       - proxy
