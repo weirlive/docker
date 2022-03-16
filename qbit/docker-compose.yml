@@ -7,7 +7,6 @@ services:
       volumes:
         - ${FILE1}:/config
         - ${FILE2}:/downloads
-        - ${FILE3}:/downloads2
       restart: unless-stopped
       privileged: true
       networks:
