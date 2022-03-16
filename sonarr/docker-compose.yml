@@ -2,20 +2,20 @@
 version: "3.7"
 services:
   sonarr:
-    image: lscr.io/linuxserver/sonarr:${TAG}
+    image: lscr.io/linuxserver/sonarr
     container_name: sonarr
     networks:
       - proxy
     ports:
-      - ${APP_PORT}:8989
+      - 8989:8989
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - NAME_SERVERS=${NAME_SERVERS}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/sonarr/config:/config
-      - /media/plex:/plex
+      - ${FILE1}:/config
+      - ${FILE2}:/plex
     restart: unless-stopped
 
 

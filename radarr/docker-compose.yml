@@ -2,7 +2,7 @@
 version: "3.7"
 services:
   radarr:
-    image: lscr.io/linuxserver/radarr:${TAG}
+    image: lscr.io/linuxserver/radarr
     container_name: radarr
     networks:
       - proxy
@@ -11,11 +11,11 @@ services:
       - PGID=${PGID}
       - "NAME_SERVERS=${NAME_SERVERS}"
     ports:
-     - ${APP_PORT}:7878
+     - 7878:7878
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/radarr/config:/config
-      - /media/plex:/plex
+      - ${FILE1}:/config
+      - ${FILE2}:/plex
     restart: unless-stopped
 
 

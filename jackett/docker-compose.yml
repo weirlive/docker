@@ -2,15 +2,15 @@
 version: "3.7"
 services:
   jackett:
-    image: lscr.io/linuxserver/jackett:${TAG}
+    image: lscr.io/linuxserver/jackett
     container_name: jackett
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/jackett/config:/config
-      - /media/plex/ndown:/downloads
+      - ${FILE1}:/config
+      - ${FILE2}:/downloads
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:9117
+      - 9117:9117
     environment:
       - PUID=${PUID}
       - PGID=${PGID}

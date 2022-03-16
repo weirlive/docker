@@ -5,8 +5,8 @@ services:
       image: markusmcnugen/qbittorrentvpn
       container_name: qbit
       volumes:
-        - ~/vm/qbit/config:/config
-        - /media/plex/new_downloads:/downloads
+        - ${FILE1}:/config
+        - ${FILE2}:/downloads
       restart: unless-stopped
       privileged: true
       networks:
@@ -20,7 +20,7 @@ services:
         - LAN_NETWORK=${LAN_NETWORK}
         - NAME_SERVERS=${NAME_SERVER}
         - WEBUI_PORT_ENV=${APP_PORT1}
-        - INCOMING_PORt_ENV=${APP_PORT2}
+        - INCOMING_PORT_ENV=${APP_PORT2}
         - PGID=${PGID}
         - PUID=${PUID}     
       cap_add: 
