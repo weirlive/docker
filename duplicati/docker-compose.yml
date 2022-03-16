@@ -9,14 +9,13 @@ services:
       - PGID=${PGID}
     volumes:
       - ~/vm/duplicati/config:/config
-      - ${FILE1}:/backups
-      - ${FILE2}:/source
+      - ~/vm:/backups
+      - ${FILE1}:/source
     networks:
       - proxy
     ports:
       - 8200:8200
     restart: unless-stopped
-
 
 networks:
   proxy:
