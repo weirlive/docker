@@ -9,7 +9,7 @@ services:
      - "${APP_PORT2}:27015/tcp"
     volumes:
      - /etc/localtime:/etc/localtime:ro
-     - ~/vm/factorio:/factorio
+     - ${FILE1}:/factorio
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
