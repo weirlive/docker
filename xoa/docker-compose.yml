@@ -19,8 +19,8 @@ services:
       - SYS_ADMIN
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/xoa/xo-data:/storage
-      - ~/vm/xoa/backups:/run/mount/backups
+      - ${FILE1}:/storage
+      - ${FILE2}:/run/mount/backups
     logging: &default_logging
       driver: "json-file"
       options:
@@ -36,7 +36,7 @@ services:
     networks:
       - redis
     volumes:
-      - ~/vm/xoa/redis-data:/data
+      - ${FILE3}:/data
     logging:
       <<: *default_logging
             
