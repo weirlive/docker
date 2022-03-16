@@ -8,9 +8,9 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ~/vm/duplicati/config:/config
-      - ${FILE1}:/backups
-      - ${FILE2}:/source
+      - ${FILE1}:/config
+      - ${FILE2}:/backups
+      - ${FILE3}:/source
     networks:
       - proxy
     ports:
