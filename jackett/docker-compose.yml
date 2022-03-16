@@ -10,7 +10,7 @@ services:
       - ${FILE2}:/downloads
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:9117
+      - 9117:9117
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
