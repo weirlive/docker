@@ -11,7 +11,7 @@ services:
       - PGID=${PGID}
       - "NAME_SERVERS=${NAME_SERVERS}"
     ports:
-     - ${APP_PORT}:7878
+     - 7878:7878
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
