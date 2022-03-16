@@ -16,6 +16,6 @@ services:
       
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/vm/plex/config:/config
-      - ~/vm/plex/dev/shm:/dev/shm
-      - /media/plex:/media
+      - ${FILE1}:/config
+      - ${FILE2}:/dev/shm
+      - ${FILE3}:/media
