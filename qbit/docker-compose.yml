@@ -5,7 +5,7 @@ services:
       image: markusmcnugen/qbittorrentvpn
       container_name: qbit
       volumes:
-        - "~/vm/qbit/config:/config"
+        - "~/vm/qbit/config/:/config"
         - /media/plex/new_downloads:/downloads
       restart: unless-stopped
       privileged: true
