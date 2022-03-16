@@ -11,12 +11,12 @@ services:
       - proxy
       - mysql_wordpress
     environment:
-      WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_USER: test
-      WORDPRESS_DB_PASSWORD: test
-      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
-      - ~/vm/wordpress/config:/var/www/html
+      - ${FILE1}:/var/www/html
   mysql:
     image: mysql:latest
     container_name: wp_mysql
@@ -24,12 +24,12 @@ services:
     networks:
       - mysql_wordpress
     environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
-      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD}
     volumes:
-      - ~/vm/wordpress/mysql:/var/lib/mysql
+      - ${FILE2}:/var/lib/mysql
 
 
 networks:
