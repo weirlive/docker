@@ -8,11 +8,11 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ~/vm/homer/assets:/www/assets
+      - ${FILE1}:/www/assets
     networks:
       - proxy
     ports:
-      - ${APP_PORT}:8080
+      - 8080:8080
     restart: unless-stopped
 
 
