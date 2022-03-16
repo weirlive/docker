@@ -6,7 +6,7 @@ services:
     container_name: duplicati
     environment:
       - PUID=${PUID}
-      - PGID=${PGID}
+      - GUID=${GUID}
     volumes:
       - ${FILE1}:/config
       - ${FILE2}:/backups
