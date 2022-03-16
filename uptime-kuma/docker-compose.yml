@@ -6,7 +6,7 @@ services:
     image: louislam/uptime-kuma:latest
     container_name: uptime-kuma
     volumes:
-      - ~/vm/uptime-kuma/data:/app/data
+      - ${FILE1}:/app/data
     ports:
       - 3001:3001
     environment:
