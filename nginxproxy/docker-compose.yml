@@ -21,6 +21,8 @@ services:
     volumes:
       - ${FILE1}:/data
       - ${FILE2}:/etc/letsencrypt
+    restart: unless-stopped
+
   db:
     image: jc21/mariadb-aria:latest
     container_name: mysql-db
@@ -35,6 +37,7 @@ services:
       MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
     volumes:
       - ${FILE3}:/var/lib/mysql
+    restart: unless-stopped
 
 networks:
   proxy:
