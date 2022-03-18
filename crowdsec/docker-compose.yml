@@ -17,22 +17,20 @@ services:
     networks:
       - proxy
   
-  #metabase, because security is cool, but dashboards are cooler
-  dashboard:
-    #we're using a custom Dockerfile so that metabase pops with pre-configured dashboards
-    build: ./crowdsec/dashboard
-    restart: always
-    ports:
-      - 3000:3000
-    environment:
-      MB_DB_FILE: /data/metabase.db
-      MGID: "${GID-1000}"
-    depends_on:
-      - 'crowdsec'
-    volumes:
-      - ${FILE4}:/metabase-data/
-    networks:
-      - proxy
+  # dashboard:
+  #   build: ./crowdsec/dashboard
+  #   restart: always
+  #   ports:
+  #     - 3000:3000
+  #   environment:
+  #     MB_DB_FILE: /data/metabase.db
+  #     MGID: "${GID-1000}"
+  #   depends_on:
+  #     - 'crowdsec'
+  #   volumes:
+  #     - ${FILE4}:/metabase-data/
+  #   networks:
+  #     - proxy
 
 networks:
   proxy:
