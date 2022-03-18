@@ -22,7 +22,8 @@ services:
       - ${FILE1}:/data
       - ${FILE2}:/etc/letsencrypt
     restart: unless-stopped
-    depends_on: mysql-db
+    depends_on: 
+      - mysql-db
 
   db:
     image: jc21/mariadb-aria:latest
