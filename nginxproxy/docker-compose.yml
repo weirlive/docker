@@ -23,7 +23,7 @@ services:
       - ${FILE2}:/etc/letsencrypt
     restart: unless-stopped
     depends_on: 
-      - mysql-db
+      - db
 
   db:
     image: jc21/mariadb-aria:latest
