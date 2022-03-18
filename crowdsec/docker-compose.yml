@@ -1,38 +1,38 @@
-  version: '3.8'
+version: '3.8'
 
-  services:
-    crowdsec:
-      image: crowdsecurity/crowdsec
-      container_name: crowdsec
-      restart: always
-      environment:
-        GID: "${GID-1000}"
-      # depends_on:
-      #   - 'reverse-proxy'
-      volumes:
-        - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
-        - ${FILE1}:/var/lib/crowdsec/data/
-        - ${FILE2}:/etc/crowdsec/
-        - ${FILE3}:/var/logs/npm/:ro
-      networks:
-        - proxy
-    
-    #metabase, because security is cool, but dashboards are cooler
-    dashboard:
-      #we're using a custom Dockerfile so that metabase pops with pre-configured dashboards
-      build: ./crowdsec/dashboard
-      restart: always
-      ports:
-        - 3000:3000
-      environment:
-        MB_DB_FILE: /data/metabase.db
-        MGID: "${GID-1000}"
-      depends_on:
-        - 'crowdsec'
-      volumes:
-        - ${FILE4}:/metabase-data/
-      networks:
-        - proxy
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec
+    container_name: crowdsec
+    restart: always
+    environment:
+      GID: "${GID-1000}"
+    # depends_on:
+    #   - 'reverse-proxy'
+    volumes:
+      - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
+      - ${FILE1}:/var/lib/crowdsec/data/
+      - ${FILE2}:/etc/crowdsec/
+      - ${FILE3}:/var/logs/npm/:ro
+    networks:
+      - proxy
+  
+  #metabase, because security is cool, but dashboards are cooler
+  dashboard:
+    #we're using a custom Dockerfile so that metabase pops with pre-configured dashboards
+    build: ./crowdsec/dashboard
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      MB_DB_FILE: /data/metabase.db
+      MGID: "${GID-1000}"
+    depends_on:
+      - 'crowdsec'
+    volumes:
+      - ${FILE4}:/metabase-data/
+    networks:
+      - proxy
 
 networks:
   proxy:
