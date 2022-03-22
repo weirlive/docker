@@ -14,7 +14,7 @@ services:
     ports:
       - 8003:80
     restart: unless-stopped
-    network:
+    networks:
       - proxy
 
 networks:
