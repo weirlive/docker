@@ -1,0 +1,22 @@
+---
+version: "3.8"
+services:
+  smokeping:
+    image: lscr.io/linuxserver/smokeping
+    container_name: smokeping
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${FILE1}:/config
+      - ${FILE2}:/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8003:80
+    restart: unless-stopped
+    network:
+      - proxy
+
+networks:
+  proxy:
+    external: true
