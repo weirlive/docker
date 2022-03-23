@@ -4,66 +4,70 @@ version: '3.8'
 services:
   postgresql:
     image: postgres:12-alpine
+    container_name: postgresql
     restart: unless-stopped
     volumes:
-      - database:/var/lib/postgresql/data
+      - ${FILE1}:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=${PG_PASS:?database password required}
-      - POSTGRES_USER=${PG_USER:-authentik}
-      - POSTGRES_DB=${PG_DB:-authentik}
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_DB=${PG_DB}
 
 
   redis:
     image: redis:alpine
+    container_name: redis
     restart: unless-stopped
   server:
-    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2022.3.3}
+    image: ghcr.io/goauthentik/server
     restart: unless-stopped
     command: server
     environment:
       AUTHENTIK_REDIS__HOST: redis
       AUTHENTIK_POSTGRESQL__HOST: postgresql
-      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
-      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
+      AUTHENTIK_POSTGRESQL__USER: ${PG_USER}
+      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
       # AUTHENTIK_ERROR_REPORTING__ENABLED: "true"
       # WORKERS: 2
     volumes:
-      - ./media:/media
-      - ./custom-templates:/templates
-      - geoip:/geoip
+      - ${FILE2}:/media
+      - ${FILE3}:/templates
+      - ${FILE4}:/geoip
     ports:
-      - "0.0.0.0:${AUTHENTIK_PORT_HTTP:-9000}:9000"
-      - "0.0.0.0:${AUTHENTIK_PORT_HTTPS:-9443}:9443"
+      - "0.0.0.0:9001:9000"
+      - "0.0.0.0:9443:9443"
 
 
   worker:
-    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2022.3.3}
+    image: ghcr.io/goauthentik/server
+    container_name: worker
     restart: unless-stopped
     command: worker
     environment:
       AUTHENTIK_REDIS__HOST: redis
       AUTHENTIK_POSTGRESQL__HOST: postgresql
-      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
-      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
+      AUTHENTIK_POSTGRESQL__USER: ${PG_USER}
+      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
       # AUTHENTIK_ERROR_REPORTING__ENABLED: "true"
     # This is optional, and can be removed. If you remove this, the following will happen
     # - The permissions for the /media folders aren't fixed, so make sure they are 1000:1000
     # - The docker socket can't be accessed anymore
-    user: root
+    user: ${USER1}
     volumes:
-      - ./media:/media
-      - ./certs:/certs
+      - ${FILE2}:/media
+      - ${FILE5}:/certs
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./custom-templates:/templates
-      - geoip:/geoip
+      - ${FILE3}:/templates
+      - ${FILE4}:/geoip
  
   
   geoipupdate:
     image: "maxmindinc/geoipupdate:latest"
+    container_name: geoipupdate
     volumes:
-      - "geoip:/usr/share/GeoIP"
+      - "${FILE4}:/usr/share/GeoIP"
     environment:
       GEOIPUPDATE_EDITION_IDS: "GeoLite2-City"
       GEOIPUPDATE_FREQUENCY: "8"
