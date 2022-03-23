@@ -16,9 +16,9 @@ services:
       - POSTGRES_DB=${PG_DB}
 
 
-  redis:
+  authentik_redis:
     image: redis:alpine
-    container_name: redis
+    container_name: authentik_redis
     restart: unless-stopped
     networks:
       - authentik
@@ -33,7 +33,7 @@ services:
       - authentik
     command: server
     environment:
-      AUTHENTIK_REDIS__HOST: redis
+      AUTHENTIK_REDIS__HOST: authentik_redis
       AUTHENTIK_POSTGRESQL__HOST: postgresql
       AUTHENTIK_POSTGRESQL__USER: ${PG_USER}
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB}
@@ -57,7 +57,7 @@ services:
       - authentik
     command: worker
     environment:
-      AUTHENTIK_REDIS__HOST: redis
+      AUTHENTIK_REDIS__HOST: authentik_redis
       AUTHENTIK_POSTGRESQL__HOST: postgresql
       AUTHENTIK_POSTGRESQL__USER: ${PG_USER}
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB}
