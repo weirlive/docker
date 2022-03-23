@@ -4,8 +4,7 @@ services:
     container_name: tdarr
     image: ghcr.io/haveagitgat/tdarr
     restart: unless-stopped
-    networks:
-      - proxy
+    network_mode: bridge
     ports:
       - 8265:8265 # webUI port
       - 8266:8266 # server port
@@ -36,8 +35,7 @@ services:
     container_name: tdarr-node1
     image: ghcr.io/haveagitgat/tdarr_node
     restart: unless-stopped
-    networks:
-      - proxy
+    network_mode: service:tdarr
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -58,8 +56,7 @@ services:
     container_name: tdarr-node2
     image: ghcr.io/haveagitgat/tdarr_node
     restart: unless-stopped
-    networks:
-      - proxy
+    network_mode: service:tdarr
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -80,8 +77,7 @@ services:
     container_name: tdarr-node3
     image: ghcr.io/haveagitgat/tdarr_node
     restart: unless-stopped
-    networks:
-      - proxy
+    network_mode: service:tdarr
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -97,7 +93,3 @@ services:
       - ${FILE3}:/app/logs
       - ${FILE4}:/media
       - ${FILE5}:/temp
-
-networks:
-  proxy:
-    external: true
