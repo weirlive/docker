@@ -75,16 +75,16 @@ services:
       - ${FILE4}:/geoip
  
   
-  geoipupdate:
-    image: "maxmindinc/geoipupdate:latest"
-    container_name: geoipupdate
-    networks:
-      - authentik
-    volumes:
-      - "${FILE4}:/usr/share/GeoIP"
-    environment:
-      GEOIPUPDATE_EDITION_IDS: "GeoLite2-City"
-      GEOIPUPDATE_FREQUENCY: "8"
+  # geoipupdate:
+  #   image: "maxmindinc/geoipupdate:latest"
+  #   container_name: geoipupdate
+  #   networks:
+  #     - authentik
+  #   volumes:
+  #     - "${FILE4}:/usr/share/GeoIP"
+  #   environment:
+  #     GEOIPUPDATE_EDITION_IDS: "GeoLite2-City"
+  #     GEOIPUPDATE_FREQUENCY: "8"
 
 networks:
   proxy:
