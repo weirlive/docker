@@ -6,7 +6,6 @@ services:
     restart: unless-stopped
     networks:
       - proxy
-      - tdarr
     ports:
       - 8265:8265 # webUI port
       - 8266:8266 # server port
@@ -36,7 +35,7 @@ services:
     image: ghcr.io/haveagitgat/tdarr_node
     restart: unless-stopped
     networks:
-      - tdarr
+      - proxy
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -55,6 +54,4 @@ services:
 
 networks:
   proxy:
-    external: true
-  tdarr:
     external: true
