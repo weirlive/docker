@@ -23,6 +23,8 @@ services:
       - nodeID=MyInternalNode
       - nodeIP=10.10.20.5
       - nodePort=8267
+      - nodePort=8268
+      - nodePort=8269
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/app/server
