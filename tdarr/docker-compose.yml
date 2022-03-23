@@ -42,7 +42,7 @@ services:
       - UMASK_SET=002
       - nodeID=MainNode
       - nodeIP=${NODE-IP}
-      - nodePort=8268
+      - nodePort=8267
       - serverIP=${SERVER-IP}
       - serverPort=8266
     volumes:
