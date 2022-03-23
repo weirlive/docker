@@ -10,7 +10,8 @@ services:
       - 8265:8265 # webUI port
       - 8266:8266 # server port
       - 8267:8267 # Internal node port
-      #- 8268:8268 # Example extra node port
+      - 8268:8268 # Example extra node port
+      - 8269:8269 # Example extra node port
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -30,8 +31,8 @@ services:
       - ${FILE4}:/media
       - ${FILE5}:/temp
   
-  tdarr-node:
-    container_name: tdarr-node
+  tdarr-node1:
+    container_name: tdarr-node1
     image: ghcr.io/haveagitgat/tdarr_node
     restart: unless-stopped
     networks:
@@ -40,9 +41,53 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - UMASK_SET=002
-      - nodeID=MainNode
+      - nodeID=NODE1
       - nodeIP=10.10.20.5
       - nodePort=8267
+      - serverIP=10.10.20.5
+      - serverPort=8266
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${FILE2}:/app/configs
+      - ${FILE3}:/app/logs
+      - ${FILE4}:/media
+      - ${FILE5}:/temp
+  
+  tdarr-node2:
+    container_name: tdarr-node2
+    image: ghcr.io/haveagitgat/tdarr_node
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK_SET=002
+      - nodeID=NODE2
+      - nodeIP=10.10.20.5
+      - nodePort=8268
+      - serverIP=10.10.20.5
+      - serverPort=8266
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${FILE2}:/app/configs
+      - ${FILE3}:/app/logs
+      - ${FILE4}:/media
+      - ${FILE5}:/temp
+
+  tdarr-node3:
+    container_name: tdarr-node3
+    image: ghcr.io/haveagitgat/tdarr_node
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK_SET=002
+      - nodeID=NODE3
+      - nodeIP=10.10.20.5
+      - nodePort=8269
       - serverIP=10.10.20.5
       - serverPort=8266
     volumes:
