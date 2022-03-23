@@ -17,12 +17,12 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - UMASK_SET=002
-      - serverIP=10.10.20.5
+      - serverIP=0.0.0.0
       - serverPort=8266
       - webUIPort=8265
       - internalNode=true
       - nodeID=MyInternalNode
-      - nodeIP=10.10.20.5
+      - nodeIP=0.0.0.0
       - nodePort=8267
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -43,9 +43,9 @@ services:
       - PGID=${PGID}
       - UMASK_SET=002
       - nodeID=NODE1
-      - nodeIP=10.10.20.5
+      - nodeIP=0.0.0.0
       - nodePort=8268
-      - serverIP=10.10.20.5
+      - serverIP=0.0.0.0
       - serverPort=8266
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -65,9 +65,9 @@ services:
       - PGID=${PGID}
       - UMASK_SET=002
       - nodeID=NODE2
-      - nodeIP=10.10.20.5
+      - nodeIP=0.0.0.0
       - nodePort=8269
-      - serverIP=10.10.20.5
+      - serverIP=0.0.0.0
       - serverPort=8266
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -87,9 +87,9 @@ services:
       - PGID=${PGID}
       - UMASK_SET=002
       - nodeID=NODE3
-      - nodeIP=10.10.20.5
+      - nodeIP=0.0.0.0
       - nodePort=8270
-      - serverIP=10.10.20.5
+      - serverIP=0.0.0.0
       - serverPort=8266
     volumes:
       - /etc/localtime:/etc/localtime:ro
