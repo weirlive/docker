@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     networks:
       - proxy
+      - tdarr
     ports:
       - 8265:8265 # webUI port
       - 8266:8266 # server port
@@ -29,3 +30,31 @@ services:
       - ${FILE3}:/app/logs
       - ${FILE4}:/media
       - ${FILE5}:/temp
+  
+  tdarr-node:
+    container_name: tdarr-node
+    image: ghcr.io/haveagitgat/tdarr_node
+    restart: unless-stopped
+    networks:
+      - tdarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK_SET=002
+      - nodeID=MainNode
+      - nodeIP=${NODE-IP}
+      - nodePort=8268
+      - serverIP=${SERVER-IP}
+      - serverPort=8266
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${FILE2}:/app/configs
+      - ${FILE3}:/app/logs
+      - ${FILE4}:/media
+      - ${FILE5}:/temp
+
+networks:
+  proxy:
+    external: true
+  tdarr:
+    external: true
