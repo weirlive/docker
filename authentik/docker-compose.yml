@@ -6,6 +6,8 @@ services:
     image: postgres:12-alpine
     container_name: postgresql
     restart: unless-stopped
+    networks:
+      - authentik
     volumes:
       - ${FILE1}:/var/lib/postgresql/data
     environment:
@@ -18,9 +20,17 @@ services:
     image: redis:alpine
     container_name: redis
     restart: unless-stopped
+    networks:
+      - authentik
+
+
   server:
     image: ghcr.io/goauthentik/server
+    container_name: server
     restart: unless-stopped
+    networks:
+      - proxy
+      - authentik
     command: server
     environment:
       AUTHENTIK_REDIS__HOST: redis
@@ -43,6 +53,8 @@ services:
     image: ghcr.io/goauthentik/server
     container_name: worker
     restart: unless-stopped
+    networks:
+      - authentik
     command: worker
     environment:
       AUTHENTIK_REDIS__HOST: redis
@@ -66,8 +78,16 @@ services:
   geoipupdate:
     image: "maxmindinc/geoipupdate:latest"
     container_name: geoipupdate
+    networks:
+      - authentik
     volumes:
       - "${FILE4}:/usr/share/GeoIP"
     environment:
       GEOIPUPDATE_EDITION_IDS: "GeoLite2-City"
       GEOIPUPDATE_FREQUENCY: "8"
+
+networks:
+  proxy:
+    external: true
+  authentik:
+    external: true
