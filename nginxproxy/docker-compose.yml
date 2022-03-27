@@ -49,5 +49,9 @@ networks:
 
 
 volumes:
-  nginxdata:
+  nginxdata/data:
+    external: true
+  nginxdata/letsencrypt:
+    external: true
+  nginxdata/mysql:
     external: true
