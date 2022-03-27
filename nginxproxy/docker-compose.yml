@@ -19,8 +19,8 @@ services:
       DB_MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
       DB_MYSQL_NAME: ${DB_MYSQL_NAME}
     volumes:
-      - nginxproxy/data:/data
-      - nginxproxy/letsencrypt:/etc/letsencrypt
+      - npm-data:/data
+      - npm-letsencrypt:/etc/letsencrypt
     restart: unless-stopped
     depends_on: 
       - db
@@ -38,7 +38,7 @@ services:
       MYSQL_USER: ${DB_MYSQL_USER}
       MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
     volumes:
-      - nginxproxy/mysql:/var/lib/mysql
+      - npm-mysql:/var/lib/mysql
     restart: unless-stopped
 
 networks:
@@ -47,11 +47,10 @@ networks:
   mysql-npm:
     external: true
 
-
 volumes:
-  nginxdata/data:
+  npm-data:
     external: true
-  nginxdata/letsencrypt:
+  npm-letsencrypt:
     external: true
-  nginxdata/mysql:
+  npm-mysql:
     external: true
