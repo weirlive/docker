@@ -49,5 +49,8 @@ networks:
 
 volumes:
   npm-data:
+    external: true
   npm-letsencrypt:
+    external: true
   npm-mysql:
+    external: true
