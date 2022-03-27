@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  flame:
+    image: pawelmalak/flame
+    container_name: flame
+    networks:
+      - proxy
+    volumes:
+      - ${FILE1}:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration feature
+    ports:
+      - 5005:5005
+    environment:
+      - PASSWORD=${PASSWORD}
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
