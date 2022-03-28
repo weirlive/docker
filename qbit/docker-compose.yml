@@ -22,5 +22,6 @@ volumes:
     external: true
 
 networks:
-  gluetun:
-    external: true
+  default:
+    external:
+      name: glueton 
