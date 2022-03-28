@@ -5,7 +5,7 @@ services:
       image: markusmcnugen/qbittorrentvpn
       container_name: qbit
       volumes:
-        - ${FILE1}:/config
+        - qbit:/config
         - ${FILE2}:/downloads
       restart: unless-stopped
       privileged: true
@@ -32,4 +32,8 @@ services:
 
 networks:
   proxy:
+    external: true
+
+volumes:
+  qbit:
     external: true 
