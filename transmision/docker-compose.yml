@@ -1,7 +1,7 @@
 version: '3.9'
 services:
     transmission-openvpn:
-    container_name: transmision
+        container_name: transmision
         image: haugene/transmission-openvpn
         cap_add:
             - NET_ADMIN
