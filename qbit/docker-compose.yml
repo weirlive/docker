@@ -27,22 +27,19 @@ services:
       container_name: qbittorrent
       network_mode: "service:gluetun"
       environment:
-        - PUID=998
-        - PGID=100
-        - TZ=America/Denver
+        - PUID=${PUID}
+        - PGID=${PGID}
         - UMASK_SET=022
         - WEBUI_PORT=8080
       volumes:
-        - /srv/dev-disk-by-label-Files/Configs/QBittorrent:/config
-        - /srv/dev-disk-by-label-Files/Storage:/downloads
+        - /etc/localtime:/etc/localtime:ro
+        - qbit:/config
+        - ${FILE1}:/downloads
       restart: unless-stopped
 
 
-
-networks:
-  proxy:
-    external: true
-
 volumes:
   qbit:
+    external: true
+  gluetun:
     external: true 
