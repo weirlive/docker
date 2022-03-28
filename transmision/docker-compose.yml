@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+    transmission-openvpn:
+    container_name: transmision
+        image: haugene/transmission-openvpn
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - 'transmision:/data'
+            - '${FILE1}:/downloads'
+        environment:
+            - OPENVPN_PROVIDER=NORDVPN
+            - OPENVPN_CONFIG=US
+            - OPENVPN_USERNAME=${USER}
+            - OPENVPN_PASSWORD=${PASS}
+            - LOCAL_NETWORK=10.10.0.0/16
+            - PEER_DNS=false
+            - PUID=${PUID}
+            - PGID=${PGID}
+        logging:
+            driver: json-file
+            options:
+                max-size: 10m
+        ports:
+            - '9091:9091'
+
+
+
+volumes:
+  transmision:
+    external: true

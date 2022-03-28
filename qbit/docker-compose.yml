@@ -9,8 +9,6 @@ services:
         - ${FILE2}:/downloads
       restart: unless-stopped
       privileged: true
-      networks:
-        - proxy
       ports:
         - "8080:8080"
         - "8999:8999"
