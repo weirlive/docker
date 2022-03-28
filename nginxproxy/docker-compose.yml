@@ -8,6 +8,12 @@ volumes:
   npm_mysql:
     external: true
 
+networks:
+  proxy:
+    external: true
+  npm_mysql:
+    external: true
+
 
 services:
   nginxproxy:
@@ -51,9 +57,5 @@ services:
       - npm_mysql:/var/lib/mysql
     restart: unless-stopped
 
-networks:
-  proxy:
-    external: true
-  npm_mysql:
-    external: true
+
     
