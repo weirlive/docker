@@ -20,3 +20,7 @@ services:
 volumes:
   qbit:
     external: true
+
+networks:
+  gluetun:
+    external: true
