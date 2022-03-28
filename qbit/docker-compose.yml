@@ -22,20 +22,20 @@ services:
       - TZ=${TZ}
 
 
-    qbittorrent:
-      image: linuxserver/qbittorrent
-      container_name: qbittorrent
-      network_mode: "service:gluetun"
-      environment:
-        - PUID=${PUID}
-        - PGID=${PGID}
-        - UMASK_SET=022
-        - WEBUI_PORT=8080
-      volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - qbit:/config
-        - ${FILE1}:/downloads
-      restart: unless-stopped
+  qbittorrent:
+    image: linuxserver/qbittorrent
+    container_name: qbittorrent
+    network_mode: "service:gluetun"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK_SET=022
+      - WEBUI_PORT=8080
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - qbit:/config
+      - ${FILE1}:/downloads
+    restart: unless-stopped
 
 
 volumes:
