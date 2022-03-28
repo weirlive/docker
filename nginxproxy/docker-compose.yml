@@ -55,7 +55,4 @@ services:
       MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
     volumes:
       - npm_mysql:/var/lib/mysql
-    restart: unless-stopped
-
-
-    
+    restart: unless-stopped   
