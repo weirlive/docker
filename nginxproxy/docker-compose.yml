@@ -1,4 +1,14 @@
 version: '3.7'
+
+volumes:
+  npm_data:
+    external: true
+  npm_letsencrypt:
+    external: true
+  npm_mysql:
+    external: true
+
+
 services:
   nginxproxy:
     image: jc21/nginx-proxy-manager
@@ -43,14 +53,6 @@ services:
 
 networks:
   proxy:
-    external: true
-  npm_mysql:
-    external: true
-
-volumes:
-  npm_data:
-    external: true
-  npm_letsencrypt:
     external: true
   npm_mysql:
     external: true
