@@ -1,34 +1,43 @@
 ---
-version: '3.7'
+version: "3.9"
 services:
-    qbit:
-      image: markusmcnugen/qbittorrentvpn
-      container_name: qbit
-      networks:
-        - proxy
-      volumes:
-        - qbit:/config
-        - ${FILE2}:/downloads
-      restart: unless-stopped
-      privileged: true
-      ports:
-        - "8080:8080"
-        - "8999:8999"
-        - "8999:8999/udp"
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+    volumes:
+      - gluetun:/gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=nordvpn
+      - OPENVPN_USER=${USER}
+      - OPENVPN_PASSWORD=${PASS}
+      - SERVER_REGIONS=${REGION}
+      - TZ=${TZ}
+
+
+    qbittorrent:
+      image: linuxserver/qbittorrent
+      container_name: qbittorrent
+      network_mode: "service:gluetun"
       environment:
-        - VPN_ENABLED=${VPN_ENABLED}
-        - LAN_NETWORK=${LAN_NETWORK}
-        - NAME_SERVERS=${NAME_SERVER}
-        - WEBUI_PORT_=8080
-        - INCOMING_PORT_ENV=8999
-        - PGID=${PGID}
-        - PUID=${PUID}     
-      cap_add: 
-        - NET_ADMIN
-      devices:
-        - /dev/net/tun
-      sysctls:
-        - net.ipv6.conf.all.disable_ipv6=1       
+        - PUID=998
+        - PGID=100
+        - TZ=America/Denver
+        - UMASK_SET=022
+        - WEBUI_PORT=8080
+      volumes:
+        - /srv/dev-disk-by-label-Files/Configs/QBittorrent:/config
+        - /srv/dev-disk-by-label-Files/Storage:/downloads
+      restart: unless-stopped
+
+
 
 networks:
   proxy:
