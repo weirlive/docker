@@ -1,0 +1,28 @@
+---
+version: "3.9"
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+      - 8080:8080 #Qbit
+    volumes:
+      - glueton:/gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=${PROVIDER}
+      - OPENVPN_USER=${USER}
+      - OPENVPN_PASSWORD=${PASS}
+      - SERVER_REGIONS=${REGION}
+      - TZ=${TZ}
+
+
+volumes:
+  glueton:
+    external: true 
