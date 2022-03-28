@@ -4,6 +4,8 @@ services:
     qbit:
       image: markusmcnugen/qbittorrentvpn
       container_name: qbit
+      networks:
+        - proxy
       volumes:
         - qbit:/config
         - ${FILE2}:/downloads
