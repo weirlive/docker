@@ -19,8 +19,8 @@ services:
         - VPN_ENABLED=${VPN_ENABLED}
         - LAN_NETWORK=${LAN_NETWORK}
         - NAME_SERVERS=${NAME_SERVER}
-        - WEBUI_PORT_ENV=${APP_PORT1}
-        - INCOMING_PORT_ENV=${APP_PORT2}
+        - WEBUI_PORT_ENV=8080
+        - INCOMING_PORT_ENV=8999
         - PGID=${PGID}
         - PUID=${PUID}     
       cap_add: 
