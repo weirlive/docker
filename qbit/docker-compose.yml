@@ -5,7 +5,7 @@ services:
       image: markusmcnugen/qbittorrentvpn
       container_name: qbit
       volumes:
-        - qbit:/config
+        - /home/phenom/vm/qbit/config:/config
         - ${FILE1}:/downloads
       restart: unless-stopped
       privileged: true
