@@ -1,26 +1,39 @@
 ---
-version: "3.9"
+version: '3.7'
 services:
-  qbittorrent:
-    image: linuxserver/qbittorrent
-    container_name: qbittorrent
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - UMASK_SET=022
-      - WEBUI_PORT=8080
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - qbit:/config
-      - ${FILE1}:/downloads
-    restart: unless-stopped
+    qbit:
+      image: markusmcnugen/qbittorrentvpn
+      container_name: qbit
+      volumes:
+        - qbit:/config
+        - ${FILE1}:/downloads
+      restart: unless-stopped
+      privileged: true
+      networks:
+        - proxy
+      ports:
+        - "8080:8080"
+        - "8999:8999"
+        - "8999:8999/udp"
+      environment:
+        - VPN_ENABLED=${VPN_ENABLED}
+        - LAN_NETWORK=${LAN_NETWORK}
+        - NAME_SERVERS=${NAME_SERVER}
+        - WEBUI_PORT_ENV=8080
+        - INCOMING_PORT_ENV=8999
+        - PGID=${PGID}
+        - PUID=${PUID}     
+      cap_add: 
+        - NET_ADMIN
+      devices:
+        - /dev/net/tun
+      sysctls:
+        - net.ipv6.conf.all.disable_ipv6=1  
 
+networks:
+  proxy:
+    external: true
 
 volumes:
   qbit:
     external: true
-
-networks:
-  default:
-    external:
-      name: glueton_default
