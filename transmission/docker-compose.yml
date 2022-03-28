@@ -1,32 +1,27 @@
 ---
-version: "3.9"
+version: '3.8'
 services:
-  transmission-openvpn:
-    image: haugene/transmission-openvpn
-    container_name: transmission-openvpn
-    restart: always
-    cap_add:
-      - NET_ADMIN # This runs the container with raised privileges
-    devices:
-      - /dev/net/tun # This creates a tunnel for Transmission
-    volumes:
-      - transmission:/data # Change this to your Torrent path
-      - ${FILE1}:/downloads
-    environment:
-      - OPENVPN_PROVIDER=${PROVIDER} # Or other compatible OpenVPN provider
-      - OPENVPN_CONFIG=${CONFIG} # Or other region that supports port forwarding. Check with your VPN provider
-      - OPENVPN_USERNAME=${USERNAME} # VPN provider username
-      - OPENVPN_PASSWORD=${PASSWORD} # VPN provider password
-      - LOCAL_NETWORK=${LAN_NETWORK} # If your server's IP address is 192.168.1.x, then use this. If your server's IP address is 192.168.0.x, then change to 192.168.0.0/24
-      - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60 # Leave this as is
-      - PUID=${PUID} #Change to your PUID
-      - PGID=${PGID} #Change to your PGID
-    ports:
-      - 9091:9091 #GUI Port
-      - 8888:8888 #Transmission Port
-    dns:
-      - ${DNS1} #Use whatever DNS provider you want. This is Google.
-      - ${DNS2} #Use whatever DNS provider you want. This is Google.
+    transmission-openvpn:
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - 'transmission:/data'
+            - '${FILE1}:/downloads'
+        environment:
+            - OPENVPN_PROVIDER=${PROVIDER}
+            - OPENVPN_CONFIG=${CONFIG}
+            - OPENVPN_USERNAME=${USERNAME}
+            - OPENVPN_PASSWORD=${PASSWORD}
+            - LOCAL_NETWORK=${LAN_NETOWRK}
+            - PUID=${PUID}
+            - PGID=${PGID}
+        logging:
+            driver: json-file
+            options:
+                max-size: 10m
+        ports:
+            - '9091:9091'
+        image: haugene/transmission-openvpn
 
 
 volumes:
