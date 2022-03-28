@@ -9,7 +9,7 @@ services:
       - '${APP_PORT3}:443'
     networks:
       - proxy
-      - mysql-npm
+      - npm_mysql
     environment:
       PUID: ${PUID}
       PGID: ${PGID}
