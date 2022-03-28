@@ -19,7 +19,7 @@ services:
         - VPN_ENABLED=${VPN_ENABLED}
         - LAN_NETWORK=${LAN_NETWORK}
         - NAME_SERVERS=${NAME_SERVER}
-        - WEBUI_PORT_ENV=8080
+        - WEBUI_PORT_=8080
         - INCOMING_PORT_ENV=8999
         - PGID=${PGID}
         - PUID=${PUID}     
