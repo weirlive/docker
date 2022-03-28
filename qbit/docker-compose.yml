@@ -15,7 +15,7 @@ services:
     volumes:
       - gluetun:/gluetun
     environment:
-      - VPN_SERVICE_PROVIDER=nordvpn
+      - VPN_SERVICE_PROVIDER=${PROVIDER}
       - OPENVPN_USER=${USER}
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
