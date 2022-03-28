@@ -29,7 +29,7 @@ services:
     image: jc21/mariadb-aria
     container_name: mysql-db
     networks:
-      - mysql-npm
+      - npm_mysql
     environment:
       PUID: ${PUID}
       PGID: ${PGID}
@@ -44,7 +44,7 @@ services:
 networks:
   proxy:
     external: true
-  mysql-npm:
+  npm_mysql:
     external: true
 
 volumes:
