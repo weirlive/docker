@@ -20,9 +20,9 @@ services:
     image: jc21/nginx-proxy-manager
     container_name: nginxproxy
     ports:
-      - '${APP_PORT1}:80'
-      - '${APP_PORT2}:81'
-      - '${APP_PORT3}:443'
+      - '80:80'
+      - '81:81'
+      - '443:443'
     networks:
       - proxy
       - npm_mysql
