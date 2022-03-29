@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 
 services:
   portainer:
@@ -7,8 +7,6 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
-    networks:
-      - proxy
     ports:
       - 9000:9000
       - 8000:8000
@@ -16,10 +14,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - portainer:/data
-
-networks:
-  proxy:
-    external: true
 
 volumes:
   portainer:
