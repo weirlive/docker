@@ -1,39 +1,25 @@
----
-version: '3.7'
+version: "3.9"
 services:
-    qbit:
-      image: markusmcnugen/qbittorrentvpn
-      container_name: qbit
-      volumes:
-        - qbit:/config
-        - ${FILE1}:/downloads
-      restart: unless-stopped
-      privileged: true
-      networks:
-        - proxy
-      ports:
-        - "8080:8080"
-        - "8999:8999"
-        - "8999:8999/udp"
-      environment:
-        - VPN_ENABLED=${VPN_ENABLED}
-        - LAN_NETWORK=${LAN_NETWORK}
-        - NAME_SERVERS=${NAME_SERVER}
-        - WEBUI_PORT=8080
-        - INCOMING_PORT_ENV=8999
-        - PGID=${PGID}
-        - PUID=${PUID}     
-      cap_add: 
-        - NET_ADMIN
-      devices:
-        - /dev/net/tun
-      sysctls:
-        - net.ipv6.conf.all.disable_ipv6=1  
-
-networks:
-  proxy:
-    external: true
+  alpine-qbittorrent-openvpn:
+    container_name: qbit2
+    image: guillaumedsde/alpine-qbittorrent-openvpn
+    volumes:
+      - "${FILE1}:/downloads"
+      - "qbit2:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+    environment:
+      - OPENVPN_PROVIDER=${OPENVPN_PROVIDER}
+      - OPENVPN_CONFIG=${OPENVPN_CONFIG}
+      - OPENVPN_USERNAME=${OPENVPN_USERNAME}
+      - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - LAN=192.168.0.0/16
+    ports:
+      - "8080:8080"
+    cap_add:
+      - NET_ADMIN
 
 volumes:
-  qbit:
+  qbit2:
     external: true
