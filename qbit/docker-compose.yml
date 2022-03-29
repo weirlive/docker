@@ -19,7 +19,6 @@ services:
       - LAN=192.168.0.0/16
       - TUN=/dev/net/tun
       - DNS=${DNS}
-      - HEALTH_CHECK_HOST=google.com
     ports:
       - "8080:8080"
     cap_add:
