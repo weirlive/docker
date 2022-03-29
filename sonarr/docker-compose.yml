@@ -14,11 +14,15 @@ services:
       - NAME_SERVERS=${NAME_SERVERS}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ${FILE1}:/config
-      - ${FILE2}:/plex
+      - sonarr:/config
+      - ${FILE1}:/plex
     restart: unless-stopped
 
 
 networks:
   proxy:
+    external: true
+
+volumes:
+  sonarr:
     external: true
