@@ -15,8 +15,12 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ~/vm/portainer/data:/data
+      - portainer_data:/data
 
 networks:
   proxy:
+    external: true
+
+volumes:
+  portainer_data:
     external: true
