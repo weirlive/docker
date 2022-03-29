@@ -1,5 +1,5 @@
 ---
-version: "3.7"
+version: "3.9"
 services:
   homer:
     image: b4bz/homer
@@ -8,14 +8,11 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ${FILE1}:/www/assets
-    networks:
-      - proxy
+      - homer:/www/assets
     ports:
       - 8080:8080
     restart: unless-stopped
 
-
-networks:
-  proxy:
+volumes:
+  homer:
     external: true
