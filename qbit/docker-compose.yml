@@ -7,7 +7,7 @@ services:
       - proxy
     volumes:
       - "${FILE1}:/downloads"
-      - "qbit2:/config"
+      - "qbit:/config"
       - "/etc/localtime:/etc/localtime:ro"
     environment:
       - OPENVPN_PROVIDER=${OPENVPN_PROVIDER}
@@ -26,7 +26,7 @@ services:
       - NET_ADMIN
 
 volumes:
-  qbit2:
+  qbit:
     external: true
 
 networks:
