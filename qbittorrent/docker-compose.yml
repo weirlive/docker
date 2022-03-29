@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   alpine-qbittorrent-openvpn:
-  container_name: qbit2
+    container_name: qbit2
     image: guillaumedsde/alpine-qbittorrent-openvpn:latest
     volumes:
       - "${FILE1}:/downloads"
