@@ -3,6 +3,8 @@ services:
   alpine-qbittorrent-openvpn:
     container_name: qbit
     image: guillaumedsde/alpine-qbittorrent-openvpn
+    networks:
+      - proxy
     volumes:
       - "${FILE1}:/downloads"
       - "qbit2:/config"
@@ -25,4 +27,8 @@ services:
 
 volumes:
   qbit2:
+    external: true
+
+networks:
+  proxy:
     external: true
