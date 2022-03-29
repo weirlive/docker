@@ -15,10 +15,8 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - LAN=192.168.0.0/16
-      - LOCAL_NETWORK=10.10.0.0/16
       - TUN=/dev/net/tun
       - DNS=${DNS}
-      - DOCKER_CIDR=${DOCKER_CIDR}
       - HEALTH_CHECK_HOST=google.com
     ports:
       - "8080:8080"
