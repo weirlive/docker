@@ -5,6 +5,7 @@ services:
     image: guillaumedsde/alpine-qbittorrent-openvpn
     networks:
       - proxy
+    restart: unless-stopped
     volumes:
       - "${FILE1}:/downloads"
       - "${FILE2}:/config"

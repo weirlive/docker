@@ -3,6 +3,7 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
+    restart: unless-stopped
     environment:
       - WATCHTOWER_SCHEDULE= 0 0 4 * * *
      # - "WATCHTOWER_POLL_INTERVAL=30"
