@@ -14,15 +14,10 @@ services:
      - 7878:7878
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - radarr:/config
-      - ${FILE1}:/plex
+      - ${FILE1}:/config
+      - ${FILE2}:/plex
     restart: unless-stopped
-
 
 networks:
   proxy:
-    external: true
-
-volumes:
-  radarr:
     external: true
