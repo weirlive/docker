@@ -3,12 +3,10 @@ services:
   alpine-qbittorrent-openvpn:
     container_name: qbit
     image: guillaumedsde/alpine-qbittorrent-openvpn
-    networks:
-      - proxy
     restart: unless-stopped
     volumes:
       - "${FILE1}:/downloads"
-      - "${FILE2}:/config"
+      - "qbit:/config"
       - "/etc/localtime:/etc/localtime:ro"
     environment:
       - OPENVPN_PROVIDER=${OPENVPN_PROVIDER}
@@ -25,6 +23,6 @@ services:
     cap_add:
       - NET_ADMIN
 
-networks:
-  proxy:
+volumes:
+  qbit:
     external: true
