@@ -12,11 +12,6 @@ services:
       - NAME_SERVERS=${NAME_SERVERS}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - sonarr:/config
-      - ${FILE1}:/plex
+      - ${FILE1}:/config
+      - ${FILE2}:/plex
     restart: unless-stopped
-
-
-volumes:
-  sonarr:
-    external: true
