@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.9"
 
 services:
   plex:
@@ -16,6 +16,12 @@ services:
       
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ${FILE1}:/config
-      - ${FILE2}:/dev/shm
-      - ${FILE3}:/media
+      - plex:/config
+      - plex_dev:/dev/shm
+      - ${FILE1}:/media
+
+volumes:
+  plex:
+    external: true
+  plex_dev:
+    external: true
