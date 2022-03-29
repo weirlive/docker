@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 services:
   orchestra:
     image: ezka77/xen-orchestra-ce
@@ -7,7 +7,6 @@ services:
     depends_on:
       - redis
     networks:
-      - proxy
       - redis
     ports:
       - 8002:8000
@@ -19,8 +18,8 @@ services:
       - SYS_ADMIN
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ${FILE1}:/storage
-      - ${FILE2}:/run/mount/backups
+      - xoa_storage:/storage
+      - xoa_backup:/run/mount/backups
     logging: &default_logging
       driver: "json-file"
       options:
@@ -36,13 +35,19 @@ services:
     networks:
       - redis
     volumes:
-      - ${FILE3}:/data
+      - xoa_redis:/data
     logging:
       <<: *default_logging
             
             
 networks:
-  proxy:
-    external: true
   redis:
+    external: true
+
+volumes:
+  xoa_storage:
+    external: true
+  xoa_backup:
+    external: true
+  xoa_redis:
     external: true
