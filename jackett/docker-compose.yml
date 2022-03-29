@@ -6,7 +6,7 @@ services:
     container_name: jackett
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ${FILE1}:/config
+      - jackett:/config
       - ${FILE2}:/downloads
     restart: unless-stopped
     ports:
@@ -21,4 +21,8 @@ services:
 
 networks:
   proxy:
-    external: true 
+    external: true
+
+volumes:
+  jackett:
+    external: true
