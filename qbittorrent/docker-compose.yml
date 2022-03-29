@@ -2,7 +2,7 @@ version: "3.9"
 services:
   alpine-qbittorrent-openvpn:
     container_name: qbit2
-    image: guillaumedsde/alpine-qbittorrent-openvpn:latest
+    image: guillaumedsde/alpine-qbittorrent-openvpn
     volumes:
       - "${FILE1}:/downloads"
       - "qbit2:/config"
@@ -14,7 +14,7 @@ services:
       - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
       - PUID=${PUID}
       - PGID=${PGID}
-      - LAN=10.10.0.0/16
+      - LAN=192.168.0.0/16
     ports:
       - "8080:8080"
     cap_add:
