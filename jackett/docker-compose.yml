@@ -1,13 +1,13 @@
 ---
-version: "3.7"
+version: "3.9"
 services:
   jackett:
     image: lscr.io/linuxserver/jackett
     container_name: jackett
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ${FILE1}:/config
-      - ${FILE2}:/downloads
+      - jackett:/config
+      - ${FILE1}:/downloads
     restart: unless-stopped
     ports:
       - 9117:9117
@@ -16,9 +16,7 @@ services:
       - PGID=${PGID}
       - AUTO_UPDATE=true #optional
       - NAMESERVER=${NAMESERVER}
-    networks:
-      - proxy
 
-networks:
-  proxy:
+volumes:
+  jackett:
     external: true
