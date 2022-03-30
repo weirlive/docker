@@ -17,12 +17,6 @@ services:
       
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - plex_config:/config
-      - plex_dev:/dev/shm
-      - ${FILE1}:/media
-
-volumes:
-  plex_config:
-    external: true
-  plex_dev:
-    external: true
+      - ${FILE1}:/config
+      - ${FILE2}:/dev/shm
+      - ${FILE3}:/media
