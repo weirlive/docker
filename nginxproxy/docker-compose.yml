@@ -1,13 +1,5 @@
 version: '3.7'
 
-volumes:
-  npm_data:
-    external: true
-  npm_letsencrypt:
-    external: true
-  npm_mysql:
-    external: true
-
 networks:
   proxy:
     external: true
@@ -35,8 +27,8 @@ services:
       DB_MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
       DB_MYSQL_NAME: ${DB_MYSQL_NAME}
     volumes:
-      - npm_data:/data
-      - npm_letsencrypt:/etc/letsencrypt
+      - ${FILE1}:/data
+      - ${FILE2}:/etc/letsencrypt
     restart: unless-stopped
     depends_on: 
       - db
@@ -54,5 +46,5 @@ services:
       MYSQL_USER: ${DB_MYSQL_USER}
       MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
     volumes:
-      - npm_mysql:/var/lib/mysql
+      - ${FILE3}:/var/lib/mysql
     restart: unless-stopped   
