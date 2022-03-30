@@ -6,8 +6,8 @@ services:
     container_name: jackett
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - jackett:/config
-      - ${FILE1}:/downloads
+      - ${FILE1}:/config
+      - ${FILE2}:/downloads
     restart: unless-stopped
     ports:
       - 9117:9117
@@ -16,7 +16,3 @@ services:
       - PGID=${PGID}
       - AUTO_UPDATE=true #optional
       - NAMESERVER=${NAMESERVER}
-
-volumes:
-  jackett:
-    external: true
