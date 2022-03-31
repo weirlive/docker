@@ -6,7 +6,7 @@ services:
     image: louislam/uptime-kuma
     container_name: uptime-kuma
     volumes:
-      - uptime_kuma:/app/data
+      - ${FILE1}:/app/data
     ports:
       - 3001:3001
     environment:
@@ -14,7 +14,3 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
-
-volumes:
-  uptime_kuma:
-    external: true
