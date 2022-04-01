@@ -1,19 +1,19 @@
  ---
 version: "3.9"
-services: 
-  goaccess:
-    image: xavierh/goaccess-for-nginxproxymanager
-    container_name: goaccess
-    restart: always
-    volumes:
-        - ${FILE1}:/opt/log
-        - /etc/localtime:/etc/localtime:ro
-    ports:
-        - '7880:7880'
-    environment:
-        - PUID=${PUID}
-        - PGID=${PGID}     
-        - SKIP_ARCHIVED_LOGS=False #optional
-        # - BASIC_AUTH=False #optional
-        # - BASIC_AUTH_USERNAME=user #optional
-        # - BASIC_AUTH_PASSWORD=pass #optional  
+  services: 
+    goaccess:
+      image: xavierh/goaccess-for-nginxproxymanager
+      container_name: goaccess
+      restart: always
+      volumes:
+          - ${FILE1}:/opt/log
+          - /etc/localtime:/etc/localtime:ro
+      ports:
+          - '7880:7880'
+      environment:
+          - PUID=${PUID}
+          - PGID=${PGID}     
+          - SKIP_ARCHIVED_LOGS=False #optional
+          # - BASIC_AUTH=False #optional
+          # - BASIC_AUTH_USERNAME=user #optional
+          # - BASIC_AUTH_PASSWORD=pass #optional  
