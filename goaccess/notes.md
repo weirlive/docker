@@ -1,8 +1,17 @@
 Video:  https://www.youtube.com/watch?v=-CQcEWVBjQU
 github: https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager
 
+My Notes:
 
 
+
+
+
+
+
+
+
+Github page:
 
 Alt text
 
