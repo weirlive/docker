@@ -8,11 +8,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - homer:/www/assets
+      - ${FILE1}:/www/assets
     ports:
       - 8080:8080
     restart: unless-stopped
-
-volumes:
-  homer:
-    external: true
