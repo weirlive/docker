@@ -1,8 +1,8 @@
 version: '3.7'
 services:
   cloudflare-DDNS1:
-    container_name: ${CONTAINER_NAME_ONE}
-    image: oznu/cloudflare-ddns:latest
+    container_name: cf1
+    image: oznu/cloudflare-ddns
     restart: always
     environment:
       - PUID=${PUID}
@@ -11,8 +11,8 @@ services:
       - ZONE=${ZONE1}
       - PROXIED=true
   cloudflare-DDNS2:
-    container_name: ${CONTAINER_NAME_TWO}
-    image: oznu/cloudflare-ddns:latest
+    container_name: cf2
+    image: oznu/cloudflare-ddns
     restart: always
     environment:
       - PUID=${PUID}
