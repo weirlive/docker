@@ -8,6 +8,7 @@ services:
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
       - ${FILE1}:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
@@ -24,6 +25,7 @@ services:
       - db
     volumes:
       - ${FILE2}:/var/www/html
+      - /etc/localtime:/etc/localtime:ro
     environment:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
