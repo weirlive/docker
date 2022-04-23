@@ -11,7 +11,7 @@ services:
       - BACKUP=YES # Backup server at 5 AM
       - MONITOR=YES # Keeps server up if crash
     volumes:
-      - ${FILE1}:/home/sfserver/serverfiles/ #Optional, serverfiles
+      - ${FILE1}:/home/sfserver/serverfiles/ #Optional, serverfile
       - ${FILE2}:/home/sfserver/log/ #Optional, logs
       - ${FILE3}:/home/sfserver/lgsm/backup/ #Optional, backups
       - ${FILE4}:/home/sfserver/lgsm/config-lgsm/sfserver # Optional, LGSM-Config
