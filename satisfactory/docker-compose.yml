@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  sfserver:
+    image: vinanrra/satisfactory-server
+    container_name: sfserver
+    environment:
+      - START_MODE=1 #Change between START MODES
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TEST_ALERT=NO
+      - BACKUP=YES # Backup server at 5 AM
+      - MONITOR=YES # Keeps server up if crash
+    volumes:
+      - ${FILE1}:/home/sfserver/serverfiles/ #Optional, serverfiles
+      - ${FILE2}:/home/sfserver/log/ #Optional, logs
+      - ${FILE3}:/home/sfserver/lgsm/backup/ #Optional, backups
+      - ${FILE4}:/home/sfserver/lgsm/config-lgsm/sfserver # Optional, LGSM-Config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 15777:15777/udp
+      - 15000:15000/udp
+      - 7777:7777/udp
+    restart: unless-stopped #NEVER USE WITH START_MODE=4 or START_MODE=0
