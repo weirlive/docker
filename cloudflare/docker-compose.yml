@@ -7,7 +7,7 @@ services:
     environment:
       - PUID=${PUID}
       - GUID=${GUID}
-      - API_KEY=${API_KEY1}
+      - API_KEY=${API_KEY}
       - ZONE=${ZONE1}
       - PROXIED=true
   cloudflare-DDNS2:
@@ -17,6 +17,6 @@ services:
     environment:
       - PUID=${PUID}
       - GUID=${GUID}
-      - API_KEY=${API_KEY2}
+      - API_KEY=${API_KEY}
       - ZONE=${ZONE2}
       - PROXIED=true
