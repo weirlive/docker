@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:develop
+    image: lscr.io/linuxserver/prowlarr:nightly
     container_name: prowlarr
     environment:
       - PUID=${PUID}
