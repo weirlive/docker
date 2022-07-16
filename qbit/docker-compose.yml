@@ -4,6 +4,8 @@ services:
     container_name: qbit
     image: guillaumedsde/alpine-qbittorrent-openvpn
     restart: unless-stopped
+    networks:
+      - proxy
     volumes:
       - "${FILE1}:/downloads"
       - "${FILE2}:/config"
@@ -22,3 +24,7 @@ services:
       - "8080:8080"
     cap_add:
       - NET_ADMIN
+      
+networks:
+  proxy:
+    external: true      
