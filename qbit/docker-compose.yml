@@ -15,7 +15,7 @@ services:
       - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
       - PUID=${PUID}
       - PGID=${PGID}
-      - LAN=192.168.0.0/16
+      - LAN=10.10.20.0/24
       - TUN=/dev/net/tun
       - DNS=${DNS}
     ports:
