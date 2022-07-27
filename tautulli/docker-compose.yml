@@ -1,0 +1,16 @@
+---
+version: "3.9"
+services:
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:latest
+    container_name: tautulli
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ${FILE1}:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8181:8181
+    restart: unless-stopped
