@@ -7,7 +7,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Eastern
+      - TZ=America/New_York
     volumes:
       - ${FILE1}:/config
       - /etc/localtime:/etc/localtime:ro
