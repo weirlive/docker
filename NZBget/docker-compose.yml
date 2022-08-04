@@ -3,6 +3,7 @@ version: "3.9"
 services:
   nzbget:
     image: lscr.io/linuxserver/nzbget:latest
+    network_mode: service:gluetun
     container_name: nzbget
     environment:
       - PUID=${PUID}
@@ -14,7 +15,3 @@ services:
       - ${FILE1}:/config
       - ${FILE2}:/downloads #optional
     restart: unless-stopped
-networks:
-  default:
-    name: gluetun_default
-    external: true
