@@ -14,3 +14,7 @@ services:
       - ${FILE1}:/config
       - ${FILE2}:/downloads #optional
     restart: unless-stopped
+    networks:
+      default:
+        name: gluetun_default
+        external: true
