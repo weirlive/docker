@@ -17,6 +17,9 @@ services:
       - 8388:8388/udp # Shadowsocks
       - 6789:6789/udp #nzbget
       - 6789:6789/tcp #nzbget
+      - 8080:8080 #qbit
+      - 6881:6881 #qbit
+      - 6881:6881/udp #qbit
     environment:
       - VPN_SERVICE_PROVIDER=${PROVIDER}
       - OPENVPN_USER=${USER}
