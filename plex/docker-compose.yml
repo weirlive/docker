@@ -14,10 +14,8 @@ services:
       - VERSION=docker
       - 'ADVERTISE_IP=https://${IP_ADDRESS}:32400/'
       - PLEX_CLAIM=${PLEX_CLAIM}
-
     ports:
-      - '32400:32400'
-      
+      - '32400:32400'     
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
