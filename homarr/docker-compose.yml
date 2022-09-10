@@ -7,6 +7,6 @@ services:
     restart: unless-stopped
     volumes:
       - ${FILE1}:/app/data/configs
-      - ${FILE2}:/app/public
+      - ${FILE2}:/app/public/icons
     ports:
       - '7575:7575'
