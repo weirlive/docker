@@ -1,5 +1,7 @@
----
 version: '3'
+#---------------------------------------------------------------------#
+#                Homarr -  A homepage for your server.                #
+#---------------------------------------------------------------------#
 services:
   homarr:
     container_name: homarr
@@ -7,6 +9,6 @@ services:
     restart: unless-stopped
     volumes:
       - ${FILE1}:/app/data/configs
-      - ${FILE2}:/app/public/icons
+      - ${FILE2}/icons:/app/public/icons
     ports:
       - '7575:7575'
