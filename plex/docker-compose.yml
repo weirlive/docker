@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   plex:
-    image: lscr.io/linuxserver/plex
+    image: lscr.io/linuxserver/plex:latest
     container_name: plex
     network_mode: host
     restart: unless-stopped
