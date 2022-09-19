@@ -9,7 +9,7 @@ networks:
 
 services:
   nginxproxy:
-    image: jc21/nginx-proxy-manager
+    image: jc21/nginx-proxy-manager:latest
     container_name: nginxproxy
     ports:
       - '80:80'
@@ -34,7 +34,7 @@ services:
       - db
 
   db:
-    image: jc21/mariadb-aria
+    image: jc21/mariadb-aria:latest
     container_name: mysql-db
     networks:
       - npm_mysql
