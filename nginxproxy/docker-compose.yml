@@ -6,7 +6,6 @@ networks:
   npm_mysql:
     external: true
 
-
 services:
   nginxproxy:
     image: jc21/nginx-proxy-manager:latest
