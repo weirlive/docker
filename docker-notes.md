@@ -3,16 +3,19 @@
 ## Install docker
 
      https://docs.docker.com/engine/install/ubuntu/
-     
+
 # Install docker Machine
+
      https://docs.docker.com/machine/install-machine/
 
 # Install docker Compose
+
      https://docs.docker.com/compose/install/
-     
-# Find Images:
+
+# Find Images
+
      hub.docker.com
-     
+
 # Start a docker container
 
      docker container run --publish 80:80 "image"
@@ -27,16 +30,18 @@
      
      docker container run --publish 80:80 --detach --name "name" --network "network name" "image"
 
-
 # Stop a docker container
+
      docker container stop "name" or "id"
-     
+
 # Show running containers
+
      docker container ps
 
 # Show all containers
+
      docker container ls -a
-     
+
 # Check stats of a container
 
      show processes running in container
@@ -48,11 +53,8 @@
      shows the running stats of the container
        # docker container stats "name"
 
-     
-     
-     
-# DOCKER NETWORKING:
-     
+# DOCKER NETWORKING
+
      - All containers us the "Bridge" network by default
      - All containers on the same virtual network can talk to each other
      - you can create new virtual networks
@@ -82,8 +84,7 @@
        # docker network disconnect "name of old network" "name of the container"     
        # docker network connect bridge new_nginx
        # docker network disconnect my_app_net new_nginx
-     
-     
+
 # DOCKER DNS
 
      - by default the bridge network has a DNS service running
@@ -149,9 +150,9 @@
      "lucene_version" : "5.5.4"
        },
        "tagline" : "You Know, for Search"
-       
 
-# STORAGE     
+# STORAGE
+
      Persistent Data
      
      - Data Volumes
@@ -175,10 +176,8 @@
      Bind Mounts
      Link container path to host path     
       # docker container run -d --name "name" -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v ~/mysql:/var/lib/mysql "image"
-     
-     
-     
-# DOCKER COMPOSE:
+
+# DOCKER COMPOSE
 
      Two parts
      YAML File
@@ -226,8 +225,6 @@
 
       Specify a env file location:
         # docker-compose --env-file ~/vm/service/.env up -d
-
-
 
 # Hash Password
 
