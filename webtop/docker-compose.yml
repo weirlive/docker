@@ -1,8 +1,8 @@
 ---
-version: "3"
+version: "2.1"
 services:
   webtop:
-    image: lscr.io/linuxserver/webtop:ubuntu-kde
+    image: lscr.io/linuxserver/webtop:ubuntu-mate
     container_name: webtop
     security_opt:
       - seccomp:unconfined #optional
@@ -19,5 +19,5 @@ services:
       - 3000:3000
     devices:
       - /dev/dri:/dev/dri #optional
-    shm_size: "1gb" #optional
+    shm_size: "2gb" #optional
     restart: unless-stopped
