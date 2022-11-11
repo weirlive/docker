@@ -2,7 +2,7 @@
 version: "3"
 services:
   webtop:
-    image: lscr.io/linuxserver/webtop:ubuntu-xfce
+    image: lscr.io/linuxserver/webtop:ubuntu-kde
     container_name: webtop
     security_opt:
       - seccomp:unconfined #optional
