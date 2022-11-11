@@ -7,6 +7,7 @@ services:
     container_name: uptime-kuma
     volumes:
       - ${FILE1}:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3001:3001
     environment:
