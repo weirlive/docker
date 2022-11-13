@@ -1,0 +1,9 @@
+---
+version: "2.1"
+services:
+  guacd:
+    image: lscr.io/linuxserver/guacd:latest
+    container_name: guacd
+    ports:
+      - 4822:4822
+    restart: unless-stopped
