@@ -8,6 +8,7 @@ services:
     security_opt:
       - no-new-privileges:true
     ports:
+      - 8000:8000
       - 9443:9443
     volumes:
       - /etc/localtime:/etc/localtime:ro
