@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   traefik:
-    image: traefik:${TAG}
+    image: traefik:latest
     container_name: traefik
     restart: unless-stopped
     security_opt:
@@ -10,17 +10,17 @@ services:
     networks:
       - proxy
     ports:
-      - ${APP_PORT}:80
-      - ${APP_PORT2}:443
+      - 80:80
+      - 443:443
     environment:
       - CF_API_EMAIL=${CF_API_EMAIL}
       - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ~/vm/traefik/data/traefik.yml:/traefik.yml:ro
-      - ~/vm/traefik/data/acme.json:/acme.json
-      - ~/vm/traefik/data/config.yml:/config.yml:ro
+      - ${FILE1}:/traefik.yml:ro
+      - ${FILE2}:/acme.json
+      - ${FILE3}:/config.yml:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
