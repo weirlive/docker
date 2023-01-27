@@ -23,20 +23,20 @@ services:
       - ${FILE3}:/config.yml:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.entrypoints=http"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.rule=Host(`${FQDN}`)"
-      - "traefik.http.middlewares.${TRAEFIK_LABEL}-auth.basicauth.users=${BASIC_AUTH_USER_PASSWORD}"
-      - "traefik.http.middlewares.${TRAEFIK_LABEL}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`${FQDN}`)"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH_USER_PASSWORD}"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-      - "traefik.http.routers.${TRAEFIK_LABEL}.middlewares=traefik-https-redirect"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.entrypoints=https"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.rule=Host(`${FQDN}`)"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.middlewares=${TRAEFIK_LABEL}-auth"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls=true"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls.certresolver=${RESOLVER}"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls.domains[0].main=${LABEL_DOMAIN}"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.tls.domains[0].sans=*.${LABEL_DOMAIN}"
-      - "traefik.http.routers.${TRAEFIK_LABEL}-secure.service=api@internal"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=${RESOLVER}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=${LABEL_DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${LABEL_DOMAIN}"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
 
 networks:
   proxy:
