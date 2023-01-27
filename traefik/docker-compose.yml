@@ -25,7 +25,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
       - "traefik.http.routers.traefik.rule=Host(`${FQDN}`)"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH_USER_PASSWORD}"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH_USER_PASSWORD}" # Create a user:password with: https://doc.traefik.io/traefik/middlewares/http/basicauth/
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
