@@ -87,7 +87,7 @@
 
 # DOCKER DNS
 
-     - by default the bridge network has a DNS service running
+     - by default the bridge network has a DNS SERVICE running
      - you can connect between containers using their unique names
      
      Multiple containers can respond to the same DNS name (Round Robin):
@@ -189,13 +189,13 @@
      
      version: '3.1'  # if no version is specified then v1 is assumed. Recommend v2 minimum
 
-     services:  # containers. same as docker run
-       servicename: # a friendly name. this is also DNS name inside network
+     SERVICEs:  # containers. same as docker run
+       SERVICEname: # a friendly name. this is also DNS name inside network
      image: # Optional if you use build:
      command: # Optional, replace the default CMD specified by the image
      environment: # Optional, same as -e in docker run
      volumes: # Optional, same as -v in docker run
-       servicename2:
+       SERVICEname2:
 
      volumes: # Optional, same as docker volume create
 
@@ -224,10 +224,39 @@
     Commands:
 
       Specify a env file location:
-        # docker-compose --env-file ~/vm/service/.env up -d
+        # docker-compose --env-file ~/vm/SERVICE/.env up -d
 
 # Hash Password
 
      -  Docker Compoes doesn't like plan text passwords.. so hash it:
 
         #  echo $(htpasswd -nb <USER> <PASSWORD>) | sed -e s/\\$/\\$\\$/g
+
+## Traefik
+
+    networks:
+      - proxy
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${SERVICE}.entrypoints=http"
+      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.${SERVICE}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${SERVICE}.middlewares=${SERVICE}-https-redirect"
+      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
+      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${SERVICE}-secure.tls=true"
+      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
+      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true
+
+
+.env
+
+SERVICE=
+DOMAIN=
+PORT=
