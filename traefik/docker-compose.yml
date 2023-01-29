@@ -23,6 +23,7 @@ services:
       - ${FILE3}:/config.yml:ro
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
       - "traefik.http.routers.traefik.entrypoints=http"
       - "traefik.http.routers.traefik.rule=Host(`${FQDN}`)"
       - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH_USER_PASSWORD}" # Create a user:password with: https://doc.traefik.io/traefik/middlewares/http/basicauth/
