@@ -17,7 +17,6 @@ services:
     restart: unless-stopped
     networks:
       - proxy
-
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${SERVICE}.entrypoints=http"
