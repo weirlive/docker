@@ -25,4 +25,4 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
       - ${FILE2}:/dev/shm
-      - ${FILE3}:/media
+      - ${FILE3}:/media/plex
