@@ -10,7 +10,7 @@ services:
       - TZ=Europe/London
     volumes:
       - ${FILE1}:/config
-      - ${FILE2}:/downloads #optional
+      - ${FILE2}:/downloads
     ports:
       - 8080:8080
     restart: unless-stopped
