@@ -7,11 +7,11 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=US/'New York'
     volumes:
       - ${FILE1}:/config
       - ${FILE2}:/movies #optional
       - ${FILE3}:/tv #optional
+      - /etc/localtime:/etc/localtime:ro
     #ports:
     #  - 6767:6767
     restart: unless-stopped
