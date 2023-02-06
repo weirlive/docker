@@ -1,0 +1,14 @@
+---
+version: "3"
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - WEBUI_PORT=8080
+    volumes:
+      - ${FILE1}:/config
+      - ${FILE2}:/downloads
+    restart: unless-stopped
