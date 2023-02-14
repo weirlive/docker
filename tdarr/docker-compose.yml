@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 services:
   tdarr:
     container_name: tdarr
@@ -23,6 +23,14 @@ services:
       - nodeID=MyInternalNode
       - nodeIP=0.0.0.0
       - nodePort=8267
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/app/server
@@ -45,6 +53,14 @@ services:
       - nodePort=8268
       - serverIP=0.0.0.0
       - serverPort=8266
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE2}:/app/configs
@@ -66,6 +82,14 @@ services:
       - nodePort=8269
       - serverIP=0.0.0.0
       - serverPort=8266
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE2}:/app/configs
@@ -87,6 +111,14 @@ services:
       - nodePort=8270
       - serverIP=0.0.0.0
       - serverPort=8266
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE2}:/app/configs
