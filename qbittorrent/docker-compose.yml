@@ -2,7 +2,7 @@
 version: "3"
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent=libtorrentv1
+    image: lscr.io/linuxserver/qbittorrent=latest
     container_name: qbittorrent
     environment:
       - PUID=${PUID}
@@ -12,3 +12,5 @@ services:
       - ${FILE1}:/config
       - ${FILE2}:/downloads
     restart: unless-stopped
+		labels:
+      - "com.centurylinklabs.watchtower.enable=false"
