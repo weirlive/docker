@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   gluetun:
-    image: qmcgaw/gluetun:v3.32.0
+    image: qmcgaw/gluetun:latest
     container_name: gluetun
     cap_add:
       - NET_ADMIN
@@ -25,4 +25,17 @@ services:
       - OPENVPN_USER=${USER}
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
-      - TZ=${TZ}
+  nzbget:
+    image: lscr.io/linuxserver/nzbget:latest
+    container_name: nzbget
+    network_mode: service:gluetun
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - NZBGET_USER=${USER2} #optional
+      - NZBGET_PASS=${PASS2} #optional
+    volumes:
+      - ${FILE2}:/config
+      - ${FILE3}:/downloads #optional
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
