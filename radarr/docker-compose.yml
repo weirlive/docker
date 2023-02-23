@@ -15,3 +15,9 @@ services:
       - ${FILE1}:/config
       - ${FILE2}:/plex
     restart: unless-stopped
+    networks:
+      - prowlarr
+
+networks:
+  prowlarr:
+    external: true
