@@ -12,26 +12,5 @@ services:
       - ${FILE2}:/movies #optional
       - ${FILE3}:/tv #optional
       - /etc/localtime:/etc/localtime:ro
-    #ports:
-    #  - 6767:6767
-    restart: unless-stopped
-
-    networks:
-      - proxy
-
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.${SERVICE}.entrypoints=http"
-      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.middlewares.${SERVICE}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${SERVICE}.middlewares=${SERVICE}-https-redirect"
-      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
-      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.${SERVICE}-secure.tls=true"
-      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
-      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
-      - "traefik.docker.network=proxy"
-
-networks:
-  proxy:
-    external: true
+    ports:
+      - 6767:6767
