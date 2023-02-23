@@ -46,7 +46,6 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - WEBUI_PORT=8080
     volumes:
       - ${FILE4}:/config
       - ${FILE3}:/downloads
