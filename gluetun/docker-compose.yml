@@ -39,3 +39,15 @@ services:
       - ${FILE3}:/downloads #optional
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    network_mode: service:gluetun
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - WEBUI_PORT=8080
+    volumes:
+      - ${FILE4}:/config
+      - ${FILE3}:/downloads
+    restart: unless-stopped
