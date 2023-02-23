@@ -12,3 +12,5 @@ services:
       - ${FILE1}:/config
       - ${FILE2}:/downloads
     restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"

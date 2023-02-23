@@ -13,4 +13,8 @@ services:
       - ${FILE1}:/config
     ports:
       - 9696:9696
+<<<<<<< HEAD
     restart: unless-stopped
+=======
+    restart: unless-stopped
+>>>>>>> 79432099951b88007b560e30f5b3c5fcdf2ffdf7
