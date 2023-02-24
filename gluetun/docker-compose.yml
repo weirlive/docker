@@ -25,6 +25,8 @@ services:
       - OPENVPN_USER=${USER}
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
+    restart: unless-stopped
+    
   nzbget:
     image: lscr.io/linuxserver/nzbget:latest
     container_name: nzbget
