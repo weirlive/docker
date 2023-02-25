@@ -4,8 +4,8 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
-    ports:
-      - 8989:8989
+#    ports:
+#      - 8989:8989
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -16,8 +16,21 @@ services:
       - ${FILE2}:/plex
     restart: unless-stopped
     networks:
-      - prowlarr
+      - proxy
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${SERVICE}.entrypoints=http"
+      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
+      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${SERVICE}-secure.tls=true"
+      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
+      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
+      - "traefik.docker.network=proxy"
 
 networks:
-  prowlarr:
+  proxy:
     external: true
