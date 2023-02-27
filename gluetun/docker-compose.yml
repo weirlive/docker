@@ -26,8 +26,6 @@ services:
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
     restart: unless-stopped
-    networks:
-      - proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${SERVICE}.entrypoints=http"
