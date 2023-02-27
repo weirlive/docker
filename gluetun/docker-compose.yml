@@ -17,40 +17,12 @@ services:
       - 8388:8388/udp # Shadowsocks
       - 6789:6789/udp #nzbget
       - 6789:6789/tcp #nzbget
-      - 8080:8080 #qbit
-      - 6881:6881 #qbit
-      - 6881:6881/udp #qbit
     environment:
       - VPN_SERVICE_PROVIDER=${PROVIDER}
       - OPENVPN_USER=${USER}
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
     restart: unless-stopped
-    networks:
-      - proxy
-    labels:
-      - "traefik.enable=true"
-      # Gluetun
-      - "traefik.http.routers.${SERVICE}.entrypoints=http"
-      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.middlewares.${SERVICE}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${SERVICE}.middlewares=${SERVICE}-https-redirect"
-      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
-      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.${SERVICE}-secure.tls=true"
-      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
-      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
-      # NZBGET
-      - "traefik.http.routers.${SERVICE2}.entrypoints=http"
-      - "traefik.http.routers.${SERVICE2}.rule=Host(`${DOMAIN2}`)"
-      - "traefik.http.middlewares.${SERVICE2}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${SERVICE2}.middlewares=${SERVICE2}-https-redirect"
-      - "traefik.http.routers.${SERVICE2}-secure.entrypoints=https"
-      - "traefik.http.routers.${SERVICE2}-secure.rule=Host(`${DOMAIN2}`)"
-      - "traefik.http.routers.${SERVICE2}-secure.tls=true"
-      - "traefik.http.routers.${SERVICE2}-secure.service=${SERVICE2}"
-      - "traefik.http.services.${SERVICE2}.loadbalancer.server.port=${PORT2}"
-      - "traefik.docker.network=proxy"
 
   nzbget:
     image: lscr.io/linuxserver/nzbget:latest
@@ -66,7 +38,3 @@ services:
       - ${FILE3}:/downloads #optional
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
-
-networks:
-  proxy:
-    external: true
