@@ -33,8 +33,8 @@ services:
       # Gluetun
       - "traefik.http.routers.${SERVICE}.entrypoints=http"
       - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.middlewares.${SERVICE}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${SERVICE}.middlewares=${SERVICE}-https-redirect"
       - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
       - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.${SERVICE}-secure.tls=true"
@@ -43,8 +43,8 @@ services:
       # NZBGET
       - "traefik.http.routers.${SERVICE2}.entrypoints=http"
       - "traefik.http.routers.${SERVICE2}.rule=Host(`${DOMAIN2}`)"
-      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.middlewares.${SERVICE2}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${SERVICE2}.middlewares=${SERVICE2}-https-redirect"
       - "traefik.http.routers.${SERVICE2}-secure.entrypoints=https"
       - "traefik.http.routers.${SERVICE2}-secure.rule=Host(`${DOMAIN2}`)"
       - "traefik.http.routers.${SERVICE2}-secure.tls=true"
