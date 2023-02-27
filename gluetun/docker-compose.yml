@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   gluetun:
-    image: qmcgaw/gluetun:latest
+    image: ghcr.io/qdm12/gluetun:v3.32.0
     container_name: gluetun
     cap_add:
       - NET_ADMIN
@@ -37,7 +37,7 @@ services:
       - "traefik.docker.network=proxy"
 
   nzbget:
-    image: lscr.io/linuxserver/nzbget:latest
+    image: lscr.io/linuxserver/nzbget
     container_name: nzbget
     network_mode: service:gluetun
     environment:
