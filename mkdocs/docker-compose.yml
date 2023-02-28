@@ -2,17 +2,19 @@ version: '3'
 
 services:
   mkdocs:
-    image: squidfunk/mkdocs-material
     container_name: mkdocs
+    image: polinux/mkdocs:1.4.2
+    restart: always
     ports:
-      - 8000:8000
+      - "8000:8000"
+    environment:
+      LIVE_RELOAD_SUPPORT: 'true'
+      ADD_MODULES: 'fontawesome-markdown mkdocs-git-revision-date-localized-plugin mkdocs-material'
+      FAST_MODE: 'true'
+      DOCS_DIRECTORY: '/mkdocs'
+      # GIT_REPO: 'git@github.com:username/docs.git'
+      UPDATE_INTERVAL: 15
+      AUTO_UPDATE: 'true'
     volumes:
-      - ${FILE1}:/root
-    stdin_open: true
-    tty: true
-    command:
-      - "mkdocs"
-      - "serve"
-      - "--dev-addr=0.0.0.0:8000"
-      - "--config-file"
-      - "./mkdocs-sample.yml"
+    #  - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa
+       - ${FILE1}:/root
