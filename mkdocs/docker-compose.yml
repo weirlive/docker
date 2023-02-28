@@ -7,7 +7,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ${PWD}:/root
+      - ${FILE1}:/root
     stdin_open: true
     tty: true
     command:
