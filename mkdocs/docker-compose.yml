@@ -2,11 +2,11 @@ version: '3'
 
 services:
   mkdocs:
-    container_name: mkdocs
+    container_name: mkdocs-docs
     image: polinux/mkdocs:1.4.2
     restart: always
-    ports:
-      - "8000:8000"
+    #ports:
+    #  - "8000:8000"
     environment:
       LIVE_RELOAD_SUPPORT: 'true'
       ADD_MODULES: 'fontawesome-markdown mkdocs-git-revision-date-localized-plugin mkdocs-material'
@@ -18,3 +18,22 @@ services:
     volumes:
     #  - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa
        - ${FILE1}:/root
+
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${SERVICE}.entrypoints=http"
+      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
+      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${SERVICE}-secure.tls=true"
+      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
+      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true
