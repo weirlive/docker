@@ -29,6 +29,7 @@ services:
     networks:
       - proxy
     labels:
+      # NZBGET
       - "traefik.enable=true"
       - "traefik.http.routers.${SERVICE}.entrypoints=http"
       - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
@@ -40,6 +41,16 @@ services:
       - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
       - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
       - "traefik.docker.network=proxy"
+      # QBIT
+      - "traefik.http.routers.${SERVICE2}.entrypoints=http"
+      - "traefik.http.routers.${SERVICE2}.rule=Host(`${DOMAIN2}`)"
+      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${SERVICE2}-secure.entrypoints=https"
+      - "traefik.http.routers.${SERVICE2}-secure.rule=Host(`${DOMAIN2}`)"
+      - "traefik.http.routers.${SERVICE2}-secure.tls=true"
+      - "traefik.http.routers.${SERVICE2}-secure.service=${SERVICE2}"
+      - "traefik.http.services.${SERVICE2}.loadbalancer.server.port=${PORT2}"
 
   nzbget:
     image: lscr.io/linuxserver/nzbget
