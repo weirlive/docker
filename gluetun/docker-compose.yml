@@ -53,7 +53,7 @@ services:
       - "traefik.http.services.${SERVICE2}.loadbalancer.server.port=${PORT2}"
 
   nzbget:
-    image: lscr.io/linuxserver/nzbget
+    image: linuxserver/nzbget
     container_name: nzbget
     network_mode: service:gluetun
     environment:
@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
+    image: linuxserver/qbittorrent:latest
     container_name: qbittorrent
     network_mode: service:gluetun
     environment:
