@@ -28,29 +28,6 @@ services:
     restart: unless-stopped
     networks:
       - proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=proxy"
-      # NZBGET
-      - "traefik.http.routers.${SERVICE}.entrypoints=http"
-      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.middlewares.${SERVICE}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${SERVICE}.middlewares=${SERVICE}-https-redirect"
-      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
-      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.${SERVICE}-secure.tls=true"
-      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
-      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
-      # QBIT
-      - "traefik.http.routers.${SERVICE2}.entrypoints=http"
-      - "traefik.http.routers.${SERVICE2}.rule=Host(`${DOMAIN2}`)"
-      - "traefik.http.middlewares.${SERVICE2}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.${SERVICE2}.middlewares=${SERVICE2}-https-redirect"
-      - "traefik.http.routers.${SERVICE2}-secure.entrypoints=https"
-      - "traefik.http.routers.${SERVICE2}-secure.rule=Host(`${DOMAIN2}`)"
-      - "traefik.http.routers.${SERVICE2}-secure.tls=true"
-      - "traefik.http.routers.${SERVICE2}-secure.service=${SERVICE2}"
-      - "traefik.http.services.${SERVICE2}.loadbalancer.server.port=${PORT2}"
 
   nzbget:
     image: linuxserver/nzbget
