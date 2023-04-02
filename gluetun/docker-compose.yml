@@ -17,6 +17,9 @@ services:
       - 8388:8388/udp # Shadowsocks
       - 6789:6789/udp #nzbget
       - 6789:6789/tcp #nzbget
+      - 8080:8080 #qbit
+      - 6881:6881 #qbit
+      - 6881:6881/udp #qbit
     environment:
       - VPN_SERVICE_PROVIDER=${PROVIDER}
       - OPENVPN_USER=${USER}
@@ -27,19 +30,30 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      # NZBGET
       - "traefik.http.routers.${SERVICE}.entrypoints=http"
       - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.middlewares.${SERVICE}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${SERVICE}.middlewares=${SERVICE}-https-redirect"
       - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
       - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.${SERVICE}-secure.tls=true"
       - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
       - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
-      - "traefik.docker.network=proxy"
+      # QBIT
+      - "traefik.http.routers.${SERVICE2}.entrypoints=http"
+      - "traefik.http.routers.${SERVICE2}.rule=Host(`${DOMAIN2}`)"
+      - "traefik.http.middlewares.${SERVICE2}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${SERVICE2}.middlewares=${SERVICE2}-https-redirect"
+      - "traefik.http.routers.${SERVICE2}-secure.entrypoints=https"
+      - "traefik.http.routers.${SERVICE2}-secure.rule=Host(`${DOMAIN2}`)"
+      - "traefik.http.routers.${SERVICE2}-secure.tls=true"
+      - "traefik.http.routers.${SERVICE2}-secure.service=${SERVICE2}"
+      - "traefik.http.services.${SERVICE2}.loadbalancer.server.port=${PORT2}"
 
   nzbget:
-    image: lscr.io/linuxserver/nzbget
+    image: linuxserver/nzbget
     container_name: nzbget
     network_mode: service:gluetun
     environment:
@@ -51,6 +65,19 @@ services:
       - ${FILE2}:/config
       - ${FILE3}:/downloads #optional
       - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+
+  qbittorrent:
+    image: linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    network_mode: service:gluetun
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - WEBUI_PORT=8080
+    volumes:
+      - ${FILE4}:/config
+      - ${FILE3}:/downloads
     restart: unless-stopped
 
 networks:

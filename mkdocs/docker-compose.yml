@@ -2,17 +2,38 @@ version: '3'
 
 services:
   mkdocs:
-    image: squidfunk/mkdocs-material
-    container_name: mkdocs
-    ports:
-      - 8000:8000
+    container_name: mkdocs-docs
+    image: polinux/mkdocs:1.4.2
+    restart: always
+    #ports:
+    #  - "8000:8000"
+    environment:
+      LIVE_RELOAD_SUPPORT: 'true'
+      ADD_MODULES: 'fontawesome-markdown mkdocs-git-revision-date-localized-plugin mkdocs-material'
+      FAST_MODE: 'true'
+      DOCS_DIRECTORY: '/mkdocs'
+      # GIT_REPO: 'git@github.com:username/docs.git'
+      UPDATE_INTERVAL: 15
+      AUTO_UPDATE: 'true'
     volumes:
-      - ${PWD}:/root
-    stdin_open: true
-    tty: true
-    command:
-      - "mkdocs"
-      - "serve"
-      - "--dev-addr=0.0.0.0:8000"
-      - "--config-file"
-      - "./mkdocs-sample.yml"
+    #  - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa
+       - ${FILE1}:/root
+
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${SERVICE}.entrypoints=http"
+      - "traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
+      - "traefik.http.routers.${SERVICE}-secure.entrypoints=https"
+      - "traefik.http.routers.${SERVICE}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${SERVICE}-secure.tls=true"
+      - "traefik.http.routers.${SERVICE}-secure.service=${SERVICE}"
+      - "traefik.http.services.${SERVICE}.loadbalancer.server.port=${PORT}"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true
