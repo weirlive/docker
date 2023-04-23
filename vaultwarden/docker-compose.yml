@@ -1,0 +1,16 @@
+version: "2"
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    networks:
+      - proxy
+    volumes:
+      - ${FILE1}:/data/
+    ports:
+      - 80:80
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
