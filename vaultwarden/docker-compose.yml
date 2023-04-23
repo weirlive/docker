@@ -9,6 +9,8 @@ services:
       - ${FILE1}:/data/
     ports:
       - 90:80
+    environment:
+      - SIGNUPS_ALLOWED=false # make sure to disable this on your first build
     restart: unless-stopped
 
 networks:
