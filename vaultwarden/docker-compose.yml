@@ -11,6 +11,7 @@ services:
       - 90:80
     environment:
       - SIGNUPS_ALLOWED=false # make sure to disable this on your first build
+      - ADMIN_TOKEN=${TOKEN}
     restart: unless-stopped
 
 networks:
