@@ -7,7 +7,7 @@ services:
     depends_on:
       - redis
     networks:
-      - redis
+      - proxy
     ports:
       - 8002:8000
     environment:
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     command: redis-server --appendonly yes
     networks:
-      - redis
+      - proxy
     volumes:
       - ${FILE3}:/data
     logging:
@@ -41,5 +41,5 @@ services:
             
             
 networks:
-  redis:
+  proxy:
     external: true
