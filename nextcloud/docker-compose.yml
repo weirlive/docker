@@ -8,6 +8,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - /etc/localtime:/etc/localtime:ro
+      - NEXTCLOUD_DOMAIN_NAME=${DOMAIN1}
     volumes:
       - ${FILE1}:/config
       - ${FILE2}:/data
