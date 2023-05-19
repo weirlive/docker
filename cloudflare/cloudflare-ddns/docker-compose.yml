@@ -1,7 +1,7 @@
-version: '3.7'
+version: "3"
 services:
-  cloudflare-DDNS1:
-    container_name: cloudflare_ip
+  cloudflare:
+    container_name: cf1
     image: oznu/cloudflare-ddns
     restart: always
     environment:

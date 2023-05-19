@@ -1,0 +1,14 @@
+version: "3"
+services:
+  cloudflare:
+    container_name: cf1
+    image: oznu/cloudflare-ddns
+    deploy:
+      replicas: 1 # Set Number
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - GUID=${GUID}
+      - API_KEY=${API_KEY}
+      - ZONE=${ZONE1}
+      - PROXIED=true
