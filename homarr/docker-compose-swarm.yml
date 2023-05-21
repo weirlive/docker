@@ -1,0 +1,17 @@
+version: '3'
+services:
+  homarr:
+    image: ghcr.io/ajnart/homarr:latest
+    volumes:
+      - ${FILE1}:/app/data/configs
+      - ${FILE2}:/app/public/icons
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+#    ports:
+#      - '7575:7575'
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
