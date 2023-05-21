@@ -1,0 +1,19 @@
+---
+version: "3.9"
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma
+    volumes:
+      - ${FILE1}:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - "NAME_SERVERS=${NAME_SERVERS}"
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
