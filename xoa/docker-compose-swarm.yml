@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  orchestra:
+    image: ezka77/xen-orchestra-ce
+    depends_on:
+      - redis
+    networks:
+      - cloudflare
+    environment:
+      - DEBUG=xo:main
+      - NODE_ENV=production
+      - XOA_PLAN=5
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${FILE1}:/storage
+      - ${FILE2}:/run/mount/backups
+    logging: &default_logging
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "2"               
+                
+  redis:
+    image: redis:alpine
+    command: redis-server --appendonly yes
+    networks:
+      - cloudflare
+    volumes:
+      - ${FILE3}:/data
+    logging:
+      <<: *default_logging    
+
+networks:
+  cloudflare:
+    external: true
