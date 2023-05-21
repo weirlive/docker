@@ -1,11 +1,9 @@
 version: "3.9"
 services:
   tunnel:
-    container_name: cloudflared-tunnel
     image: cloudflare/cloudflared
     networks:
       - cloudflare
-    restart: unless-stopped
     command: tunnel run
     environment:
       - TUNNEL_TOKEN=${TOKEN}
