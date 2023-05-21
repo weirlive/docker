@@ -6,6 +6,7 @@ services:
       - redis
     networks:
       - cloudflare
+      - redis
     environment:
       - DEBUG=xo:main
       - NODE_ENV=production
@@ -26,7 +27,7 @@ services:
     image: redis:alpine
     command: redis-server --appendonly yes
     networks:
-      - cloudflare
+      - redis
     volumes:
       - ${FILE3}:/data
     logging:
@@ -34,4 +35,6 @@ services:
 
 networks:
   cloudflare:
+    external: true
+  redis:
     external: true
