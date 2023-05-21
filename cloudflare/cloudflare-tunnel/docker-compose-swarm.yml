@@ -10,10 +10,9 @@ services:
     environment:
       - TUNNEL_TOKEN=${TOKEN}
     deploy:
-      mode: replicated
-      replicas: 2
+      mode: global
 
 networks:
   cloudflare:
-    driver: overlay
-    attachable: true
+    external:
+      name: cloudflare
