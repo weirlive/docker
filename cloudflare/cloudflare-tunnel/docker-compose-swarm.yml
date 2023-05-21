@@ -14,5 +14,4 @@ services:
 
 networks:
   cloudflare:
-    external:
-      name: cloudflare
+    external: true
