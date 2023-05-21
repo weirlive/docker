@@ -1,0 +1,18 @@
+---
+version: "3.9"
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:nightly
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - NAME_SERVERS=${NAME_SERVERS}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${FILE1}:/config    
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
