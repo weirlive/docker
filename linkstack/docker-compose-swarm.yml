@@ -15,8 +15,6 @@ services:
       UPLOAD_MAX_FILESIZE: '8M'
     volumes:
       - '${FILE1}:/htdocs'
-    ports:
-      - '8190:443'
 
     networks:
       - cloudflare
