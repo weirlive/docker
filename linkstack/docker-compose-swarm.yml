@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+
+  linkstack:
+    hostname: 'linkstack'
+    image: 'linkstackorg/linkstack:latest'
+    environment:
+      TZ: ${TZ}
+      SERVER_ADMIN: ${SERVER_ADMIN}
+      HTTP_SERVER_NAME: ${HTTP}
+      HTTPS_SERVER_NAME: ${HTTPS}
+      LOG_LEVEL: ${LOG}
+      PHP_MEMORY_LIMIT: '256M'
+      UPLOAD_MAX_FILESIZE: '8M'
+    volumes:
+      - '${FILE1}:/htdocs'
+
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
