@@ -26,8 +26,6 @@ services:
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
     restart: unless-stopped
-    networks:
-      - proxy
 
   nzbget:
     image: linuxserver/nzbget
@@ -56,7 +54,3 @@ services:
       - ${FILE4}:/config
       - ${FILE3}:/downloads
     restart: unless-stopped
-
-networks:
-  proxy:
-    external: true
