@@ -51,7 +51,7 @@ services:
     security_opt:
       - no-new-privileges:true
 
-        networks:
+    networks:
       - cloudflare
 
 networks:
