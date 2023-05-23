@@ -6,7 +6,7 @@ services:
       - ${FILE1}:/data/
     environment:
       - SIGNUPS_ALLOWED=false # make sure to disable this on your first build
-      - ADMIN_TOKEN=${TOKEN}  
+      #- ADMIN_TOKEN=${TOKEN}  
     networks:
       - cloudflare
 
