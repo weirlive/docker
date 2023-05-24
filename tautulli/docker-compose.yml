@@ -14,9 +14,3 @@ services:
     ports:
       - 8181:8181
     restart: unless-stopped
-    networks:
-      - proxy
-
-networks:
-  proxy:
-    external: true
