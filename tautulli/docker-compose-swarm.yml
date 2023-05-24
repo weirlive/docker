@@ -12,6 +12,8 @@ services:
       - /etc/localtime:/etc/localtime:ro 
     networks:
       - cloudflare
+    ports:
+      - 8181:8181
 
 networks:
   cloudflare:
