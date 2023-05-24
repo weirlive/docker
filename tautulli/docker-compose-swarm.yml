@@ -1,18 +1,25 @@
 ---
-version: "3.9"
+version: "3.8"
 services:
   tautulli:
     image: lscr.io/linuxserver/tautulli:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZ}
+      - TZ=Etc/UTC
     volumes:
       - ${FILE1}:/config
-      - /etc/localtime:/etc/localtime:ro 
+    ports:
+      - target: 8181
+        published: 8181
+        protocol: tcp
+        mode: ingress
     networks:
       - cloudflare
-
 networks:
   cloudflare:
     external: true
