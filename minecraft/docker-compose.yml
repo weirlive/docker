@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   minecraft:
-    image: minecraftservers/minecraft-server
+    image: itzg/minecraft-server
     container_name: minecraft
     ports:
       - 25565:25565
