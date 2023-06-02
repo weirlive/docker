@@ -13,4 +13,4 @@ services:
     restart: unless-stopped
     volumes:
       # attach a directory relative to the directory containing this compose file
-      - $[FILE1]:/data
+      - ${FILE1}:/data
