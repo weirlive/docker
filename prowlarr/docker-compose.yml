@@ -11,12 +11,12 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
-    ports:
-      - 9696:9696
+    # ports:
+    #  - 9696:9696
     restart: unless-stopped
     networks:
-      - proxy
+      - cloudflare
 
 networks:
-  proxy:
+  cloudflare:
     external: true
