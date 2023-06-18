@@ -12,5 +12,4 @@ services:
 
 networks:
   cloudflare:
-    driver: overlay
-    attachable: true
+    external: true
