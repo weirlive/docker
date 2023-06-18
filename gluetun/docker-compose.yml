@@ -26,6 +26,8 @@ services:
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
     restart: unless-stopped
+    networks:
+      - cloudflare
 
   nzbget:
     image: linuxserver/nzbget
