@@ -56,3 +56,7 @@ services:
       - ${FILE4}:/config
       - ${FILE3}:/downloads
     restart: unless-stopped
+    
+networks:
+  cloudflare:
+    external: true
