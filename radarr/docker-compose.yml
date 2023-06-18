@@ -8,16 +8,16 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - "NAME_SERVERS=${NAME_SERVERS}"
-    ports:
-     - 7878:7878
+    #ports:
+    # - 7878:7878
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
       - ${FILE2}:/plex
     restart: unless-stopped
     networks:
-      - proxy
+      - cloudflare
 
 networks:
-  proxy:
+  cloudflare:
     external: true
