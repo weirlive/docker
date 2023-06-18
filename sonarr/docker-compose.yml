@@ -4,8 +4,8 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
-    ports:
-      - 8989:8989
+    #ports:
+    #  - 8989:8989
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -16,8 +16,8 @@ services:
       - ${FILE2}:/plex
     restart: unless-stopped
     networks:
-      - proxy
+      - cloudflare
 
 networks:
-  proxy:
+  cloudflare:
     external: true
