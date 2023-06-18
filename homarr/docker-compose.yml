@@ -9,11 +9,11 @@ services:
       - ${FILE2}:/app/public/icons
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    ports:
-      - '7575:7575'
+   # ports:
+   #   - '7575:7575'
     networks:
-      - proxy
+      - cloudflare
 
 networks:
-  proxy:
+  cloudflare:
     external: true
