@@ -4,16 +4,16 @@ services:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     networks:
-      - proxy
+      - cloudflare
     volumes:
       - ${FILE1}:/data/
-    ports:
-      - 90:80
+   # ports:
+   #   - 90:80
     environment:
       - SIGNUPS_ALLOWED=false # make sure to disable this on your first build
       - ADMIN_TOKEN=${TOKEN}
     restart: unless-stopped
 
 networks:
-  proxy:
+  cloudflare:
     external: true
