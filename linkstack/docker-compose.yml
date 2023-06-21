@@ -6,10 +6,10 @@ services:
     hostname: linkstack
     image: 'linkstackorg/linkstack:latest'
     environment:
-      TZ: '${TZ}'
-      SERVER_ADMIN: '${SERVER_ADMIN}'
-      HTTP_SERVER_NAME: '${HTTP_SERVER_NAME}'
-      HTTPS_SERVER_NAME: '${HTTPS_SERVER_NAME}'
+      TZ: ${TZ}
+      SERVER_ADMIN: ${SERVER_ADMIN}
+      HTTP_SERVER_NAME: ${HTTP_SERVER_NAME}
+      HTTPS_SERVER_NAME: ${HTTPS_SERVER_NAME}
       LOG_LEVEL: 'info'
       PHP_MEMORY_LIMIT: '512M'
       UPLOAD_MAX_FILESIZE: '8M'
