@@ -24,3 +24,6 @@ services:
 networks:
   cloudflare:
     external: true
+
+volumes:
+  linkstack:
