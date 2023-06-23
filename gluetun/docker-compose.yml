@@ -25,6 +25,7 @@ services:
       - OPENVPN_USER=${USER}
       - OPENVPN_PASSWORD=${PASS}
       - SERVER_REGIONS=${REGION}
+      - SERVER_HOSTNAMES=${SERVER_HOSTNAMES}
     restart: unless-stopped
     networks:
       - cloudflare
