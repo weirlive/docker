@@ -13,4 +13,9 @@ services:
     # ports:
     #  - 5055:5055
     restart: unless-stopped
-    
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
