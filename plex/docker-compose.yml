@@ -14,13 +14,13 @@ services:
       - VERSION=docker
       - 'ADVERTISE_IP=https://${IP_ADDRESS}:32400/'
       - PLEX_CLAIM=${PLEX_CLAIM}
-      #- NVIDIA_VISIBLE_DEVICES=all
-      #- NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
-    #deploy:
-    #  resources:
-    #    reservations:
-    #      devices:
-    #        - capabilities: [gpu]
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
