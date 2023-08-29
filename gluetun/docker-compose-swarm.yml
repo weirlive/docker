@@ -26,10 +26,11 @@ services:
       - SERVER_REGIONS=${REGION}
     networks:
       - cloudflare
+      - download
 
   nzbget:
     image: linuxserver/nzbget
-    network_mode: service:gluetun
+   # network_mode: service:gluetun
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -39,10 +40,12 @@ services:
       - ${FILE2}:/config
       - ${FILE3}:/downloads #optional
       - /etc/localtime:/etc/localtime:ro
+    networks:
+      - download
 
   qbittorrent:
     image: linuxserver/qbittorrent:latest
-    network_mode: service:gluetun
+   # network_mode: service:gluetun
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -50,7 +53,11 @@ services:
     volumes:
       - ${FILE4}:/config
       - ${FILE3}:/downloads
+    networks:
+      - download
 
 networks:
   cloudflare:
+    external: true
+  download:
     external: true
