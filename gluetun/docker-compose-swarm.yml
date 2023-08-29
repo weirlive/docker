@@ -29,7 +29,7 @@ services:
 
   nzbget:
     image: linuxserver/nzbget
-    network_mode: service:download_gluetun.1.ifo8ziou8om8apgfb5cfl6uyj
+    network_mode: service:gluetun
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -42,7 +42,7 @@ services:
 
   qbittorrent:
     image: linuxserver/qbittorrent:latest
-    network_mode: service:download_gluetun.1.ifo8ziou8om8apgfb5cfl6uyj
+    network_mode: service:gluetun
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
