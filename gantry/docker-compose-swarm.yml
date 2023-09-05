@@ -8,7 +8,10 @@ services:
     environment:
       - "GANTRY_NODE_NAME={{.Node.Hostname}}"
       - "GANTRY_SERVICES_SELF=${STACK}_gantry"
-      - "GANTRY_SLEEP_SECONDS=0"
+      - "GANTRY_SLEEP_SECONDS=43200"
+      - "GANTRY_ROLLBACK_ON_FAILURE=true"
+      - "GANTRY_CLEANUP_IMAGES=true"
+
     deploy:
       replicas: 1
       placement:
