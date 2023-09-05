@@ -6,7 +6,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - SLEEP_TIME="60m"
+      - SLEEP_TIME="59m"
       - ROLLBACK_ON_FAILURE="true"
     deploy:
       placement:
