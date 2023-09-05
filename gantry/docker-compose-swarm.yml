@@ -10,7 +10,7 @@ services:
       - "GANTRY_SERVICES_SELF=${STACK}_gantry"
       - "GANTRY_SLEEP_SECONDS=0"
     deploy:
-      replicas: 0
+      replicas: 1
       placement:
         constraints:
           - node.role==manager
