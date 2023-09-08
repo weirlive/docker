@@ -13,6 +13,8 @@ services:
       - ${FILE2}:/plex
     networks:
       - cloudflare
+    ports:
+      - 8989:8989
 
 networks:
   cloudflare:
