@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  excalidraw:
+#   ports:
+#   - '5000:80'
+    image: 'excalidraw/excalidraw:latest'
+    networks:
+    - cloudflare
+
+networks:
+  cloudflare:
+    external: true
