@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    sflowtrend:
+        volumes:
+            - '/var/local/sflowtrend-pro:/var/local/sflowtrend-pro'
+        ports:
+            - '6343:6343/udp'
+            - '8087:8087'
+            - '8443:8443'
+        hostname: sflowtrend-pro
+        environment:
+            - TZ=Europe/London
+        restart: unless-stopped
+        image: sflow/sflowtrend
