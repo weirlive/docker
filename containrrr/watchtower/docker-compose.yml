@@ -19,7 +19,7 @@ services:
      # - "WATCHTOWER_NOTIFICATIONS_HOSTNAME=${WATCHTOWER_NOTIFICATIONS_HOSTNAME}"
      # - "WATCHTOWER_NOTIFICATION_EMAIL_SERVER_TLS_SKIP_VERIFY=${WATCHTOWER_NOTIFICATION_EMAIL_SERVER_TLS_SKIP_VERIFY}"
       - "WATCHTOWER_NOTIFICATIONS=shoutrrr"
-      - "WATCHTOWER_NOTIFICATION_URL=ntfy:${URL}${TOPIC}?title=WatchtowerUpdates"
+      - "WATCHTOWER_NOTIFICATION_URL=ntfy://${URL}${TOPIC}?title=WatchtowerUpdates"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
