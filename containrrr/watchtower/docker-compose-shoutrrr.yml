@@ -8,8 +8,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
     env:
-      WATCHTOWER_SCHEDULE= 0 0 4 * * *
-      WATCHTOWER_CLEANUP=true
+      WATCHTOWER_SCHEDULE: 0 0 4 * * *
+      WATCHTOWER_CLEANUP: "true"
       WATCHTOWER_NOTIFICATION_REPORT: "true"
       WATCHTOWER_NOTIFICATION_URL: >
         ntfy://${URL}${TOPIC}?title=WatchtowerUpdates
