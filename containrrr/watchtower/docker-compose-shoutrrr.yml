@@ -5,12 +5,12 @@ services:
     container_name: watchtower
     restart: unless-stopped
     environment:
-      - WATCHTOWER_SCHEDULE= 0 0 4 * * *
+      - "WATCHTOWER_SCHEDULE= 0 0 4 * * *"
       - "WATCHTOWER_CLEANUP=true"
       - "WATCHTOWER_NOTIFICATIONS=${WATCHTOWER_NOTIFICATIONS}"
       - "WATCHTOWER_NOTIFICATION_URL=ntfy://${URL}${TOPIC}?title=WatchtowerUpdates"
       - "WATCHTOWER_NOTIFICATION_REPORT:true"
-      - "WATCHTOWER_NOTIFICATION_TEMPLATE: |
+      - WATCHTOWER_NOTIFICATION_TEMPLATE: |
           {{- if .Report -}}
             {{- with .Report -}}
           {{len .Scanned}} Scanned, {{len .Updated}} Updated, {{len .Failed}} Failed
@@ -29,7 +29,7 @@ services:
             {{- end -}}
           {{- else -}}
             {{range .Entries -}}{{.Message}}{{"\n"}}{{- end -}}
-          {{- end -}}"
+          {{- end -}}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
