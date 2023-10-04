@@ -15,9 +15,9 @@ services:
             {{- with .Report -}}
           {{len .Scanned}} Scanned, {{len .Updated}} Updated, {{len .Failed}} Failed
                 {{- range .Updated}}
-          - {{.Name}} ({{.ImageName}}): {{.CurrentImageID.ShortID}} updated to {{.LatestImageID.ShortID}}
+          - '{{.Name}} ({{.ImageName}}): {{.CurrentImageID.ShortID}} updated to {{.LatestImageID.ShortID}}
                 {{- end -}}
-                {{- range .Fresh}}
+                {{- range .Fresh}}'
           - {{.Name}} ({{.ImageName}}): {{.State}}
               {{- end -}}
               {{- range .Skipped}}
