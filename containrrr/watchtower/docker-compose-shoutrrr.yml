@@ -14,18 +14,18 @@ services:
           {{- if .Report -}}
             {{- with .Report -}}
           {{len .Scanned}} Scanned, {{len .Updated}} Updated, {{len .Failed}} Failed
-               {{- range .Updated}}
+                {{- range .Updated}}
           - {{.Name}} ({{.ImageName}}): {{.CurrentImageID.ShortID}} updated to {{.LatestImageID.ShortID}}
-               {{- end -}}
-               {{- range .Fresh}}
+                {{- end -}}
+                {{- range .Fresh}}
           - {{.Name}} ({{.ImageName}}): {{.State}}
-               {{- end -}}
-               {{- range .Skipped}}
+              {{- end -}}
+              {{- range .Skipped}}
           - {{.Name}} ({{.ImageName}}): {{.State}}: {{.Error}}
-               {{- end -}}
-               {{- range .Failed}}
+              {{- end -}}
+              {{- range .Failed}}
           - {{.Name}} ({{.ImageName}}): {{.State}}: {{.Error}}
-               {{- end -}}
+              {{- end -}}
             {{- end -}}
           {{- else -}}
             {{range .Entries -}}{{.Message}}{{"\n"}}{{- end -}}
