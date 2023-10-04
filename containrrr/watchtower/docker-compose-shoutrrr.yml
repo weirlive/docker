@@ -10,7 +10,7 @@ services:
       - "WATCHTOWER_NOTIFICATIONS=${WATCHTOWER_NOTIFICATIONS}"
       - "WATCHTOWER_NOTIFICATION_URL=ntfy://${URL}${TOPIC}?title=WatchtowerUpdates"
       - "WATCHTOWER_NOTIFICATION_REPORT: "true""      
-      -  WATCHTOWER_NOTIFICATION_TEMPLATE: |
+      - WATCHTOWER_NOTIFICATION_TEMPLATE: |
          {{- if .Report -}}
            {{- with .Report -}}
          {{len .Scanned}} Scanned, {{len .Updated}} Updated, {{len .Failed}} Failed
