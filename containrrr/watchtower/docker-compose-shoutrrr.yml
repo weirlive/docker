@@ -1,0 +1,36 @@
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      WATCHTOWER_SCHEDULE: 0 0 4 * * *
+      # WATCHTOWER_POLL_INTERVAL: 60 #You must disable the schedule to use this (in seconds)
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_NOTIFICATION_REPORT: "true"
+      WATCHTOWER_NOTIFICATION_URL: >
+        ntfy://${URL}${TOPIC}?title=WatchtowerUpdates
+      WATCHTOWER_NOTIFICATION_TEMPLATE: |
+        {{- if .Report -}}
+          {{- with .Report -}}
+        {{len .Scanned}} Scanned, {{len .Updated}} Updated, {{len .Failed}} Failed
+              {{- range .Updated}}
+        - {{.Name}} ({{.ImageName}}): {{.CurrentImageID.ShortID}} updated to {{.LatestImageID.ShortID}}
+              {{- end -}}
+              {{- range .Fresh}}
+        - {{.Name}} ({{.ImageName}}): {{.State}}
+            {{- end -}}
+            {{- range .Skipped}}
+        - {{.Name}} ({{.ImageName}}): {{.State}}: {{.Error}}
+            {{- end -}}
+            {{- range .Failed}}
+        - {{.Name}} ({{.ImageName}}): {{.State}}: {{.Error}}
+            {{- end -}}
+          {{- end -}}
+        {{- else -}}
+          {{range .Entries -}}{{.Message}}{{"\n"}}{{- end -}}
+        {{- end -}}

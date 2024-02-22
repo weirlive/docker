@@ -5,6 +5,7 @@ services:
     volumes:
       - ${FILE1}:/app/data/configs
       - ${FILE2}:/app/public/icons
+      - ${FILE3}:/data
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
 #    ports:
