@@ -11,8 +11,8 @@ services:
     volumes:
       - ${FILE1}:/config
       - /etc/localtime:/etc/localtime:ro
-#    ports:
-#      - 8181:8181
+    ports:
+      - 8181:8181
     restart: unless-stopped
     networks:
       - cloudflare
