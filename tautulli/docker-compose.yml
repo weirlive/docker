@@ -14,3 +14,9 @@ services:
     ports:
       - 8181:8181
     restart: unless-stopped
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
