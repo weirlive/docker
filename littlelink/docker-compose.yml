@@ -16,7 +16,7 @@ services:
       - OG_TITLE=Weir Live
       - OG_DESCRIPTION=The home of Weir LIve
       - OG_URL=https://weir.live
-      - OG_IMAGE=https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/435480588_10223281185393378_1959736988856100435_n.jpg?stp=dst-jpg_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=imvXQ0NkcaoQ7kNvgHTCtUF&_nc_ht=scontent-iad3-2.xx&oh=00_AYDibQojbg8ZKV0fWTuzW_tavn3GvXzPmpaJI7Er6zjPNA&oe=66580600
+      - OG_IMAGE=https://imgur.com/a/NtBwjwI
       - OG_IMAGE_WIDTH=400
       - OG_IMAGE_HEIGHT=400
       - GA_TRACKING_ID=G-XXXXXXXXXX
