@@ -16,7 +16,7 @@ services:
       - OG_TITLE=Weir Live
       - OG_DESCRIPTION=The home of Weir LIve
       - OG_URL=https://weir.live
-      - OG_IMAGE=https://pbs.twimg.com/profile_images/1286144221217316864/qIAsKOpB_400x400.jpg
+      - OG_IMAGE=https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/435480588_10223281185393378_1959736988856100435_n.jpg?stp=dst-jpg_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=imvXQ0NkcaoQ7kNvgHTCtUF&_nc_ht=scontent-iad3-2.xx&oh=00_AYDibQojbg8ZKV0fWTuzW_tavn3GvXzPmpaJI7Er6zjPNA&oe=66580600
       - OG_IMAGE_WIDTH=400
       - OG_IMAGE_HEIGHT=400
       - GA_TRACKING_ID=G-XXXXXXXXXX
@@ -38,16 +38,16 @@ services:
       - CUSTOM_BUTTON_ALT_TEXT=Tech documentation site for my videos and more,Recommended Gear
       - CUSTOM_BUTTON_NAME=DOCUMENTATION,GEAR
       - CUSTOM_BUTTON_ICON=fas file-alt,fas fa-cog
-      - GITHUB=https://l.technotim.live/github
-      - TWITTER=https://l.technotim.live/twitter
-      - INSTAGRAM=https://l.technotim.live/instagram
-      - LINKED_IN=https://l.technotim.live/linkedin
-      - YOUTUBE=https://l.technotim.live/subscribe
-      - TWITCH=https://l.technotim.live/twitch
-      #- DISCORD=https://l.technotim.live/discord
-      #- TIKTOK=https://l.technotim.live/tiktok
-      #- FACEBOOK=https://l.technotim.live/facebook
-      #- PATREON=https://l.technotim.live/patreon
+      - GITHUB=https://l.weir.live/github
+      - TWITTER=https://l.weir.live/twitter
+      - INSTAGRAM=https://l.weir.live/instagram
+      - LINKED_IN=https://l.weir.live/linkedin
+      - YOUTUBE=https://l.weir.live/subscribe
+      - TWITCH=https://l.weir.live/twitch
+      #- DISCORD=https://l.weir.live/discord
+      #- TIKTOK=https://l.weir.live/tiktok
+      #- FACEBOOK=https://l.weir.live/facebook
+      #- PATREON=https://l.weir.live/patreon
       - FOOTER=Weir Live © 2024
     ports:
       - 8080:3000
