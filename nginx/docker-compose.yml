@@ -8,6 +8,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${FILE1}:/config
+    ports:
+      - 8001:80
     restart: unless-stopped
     networks:
       - cloudflare
