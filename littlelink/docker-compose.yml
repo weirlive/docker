@@ -28,7 +28,7 @@ services:
       - NAME=Weir Live
       - BIO=Cyber Security | Gamer | Content Creator | World Traveler | 🇺🇸
       # use ENV variable names for order, listed buttons will be boosted to the top
-      - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,GEAR,DOCUMENTATION
+      - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN
       # you can render an unlimited amount of custom buttons by adding 
       # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
       - CUSTOM_BUTTON_TEXT=Documentation,Recommended Gear
@@ -39,7 +39,7 @@ services:
       - CUSTOM_BUTTON_NAME=DOCUMENTATION,GEAR
       - CUSTOM_BUTTON_ICON=fas file-alt,fas fa-cog
       - GITHUB=https://l.weir.live/github
-      - TWITTER=https://l.weir.live/twitter
+      - TWITTER=https://l.weir.live/x
       - INSTAGRAM=https://l.weir.live/instagram
       - LINKED_IN=https://l.weir.live/linkedin
       - YOUTUBE=https://l.weir.live/youtube
