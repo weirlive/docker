@@ -44,10 +44,6 @@ services:
       - LINKED_IN=https://l.weir.live/linkedin
       - YOUTUBE=https://l.weir.live/subscribe
       - TWITCH=https://l.weir.live/twitch
-      #- DISCORD=https://l.weir.live/discord
-      #- TIKTOK=https://l.weir.live/tiktok
-      #- FACEBOOK=https://l.weir.live/facebook
-      #- PATREON=https://l.weir.live/patreon
       - FOOTER=Weir Live © 2024
     ports:
       - 8080:3000
