@@ -13,7 +13,7 @@ services:
       - LANG=en
       - META_INDEX_STATUS=all
       - OG_SITE_NAME=Weir Live
-      - OG_TITLE=Weir Live
+      - OG_TITLE=@WeirLive
       - OG_DESCRIPTION=The home of Weir LIve
       - OG_URL=https://weir.live
       - OG_IMAGE=https://i.imgur.com/9XGpRkT.jpeg
