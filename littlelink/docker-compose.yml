@@ -7,7 +7,7 @@ services:
     container_name: littlelink-server
     environment:
       - META_TITLE=Weir Live
-      - META_DESCRIPTION=Cyber Security | Gamer | Content Creator | World Traveler | 🇺🇸
+      - META_DESCRIPTION=Maker of Things
       - META_AUTHOR=Weir Live
       - META_KEYWORDS=HomeLab, HTML, CSS, Engineering
       - LANG=en
@@ -26,7 +26,7 @@ services:
       - AVATAR_2X_URL=https://i.imgur.com/9XGpRkT.jpeg
       - AVATAR_ALT=Weir Live Profile Pic
       - NAME=Weir Live
-      - BIO=Cyber Security | Gamer | Content Creator | World Traveler | 🇺🇸
+      - BIO=Maker of Things
       # use ENV variable names for order, listed buttons will be boosted to the top
       - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN
       # you can render an unlimited amount of custom buttons by adding 
