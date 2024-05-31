@@ -29,7 +29,7 @@ services:
       - NAME=Weir Live
       - BIO=Maker of Things
       # use ENV variable names for order, listed buttons will be boosted to the top
-      - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN
+      - BUTTON_ORDER=YOUTUBE,FACEBOOK,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN
       # you can render an unlimited amount of custom buttons by adding 
       # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
       #- CUSTOM_BUTTON_TEXT=Documentation,Recommended Gear
@@ -45,6 +45,7 @@ services:
       - LINKED_IN=https://l.weir.live/linkedin
       - YOUTUBE=https://l.weir.live/youtube
       - TWITCH=https://l.weir.live/twitch
+      - FACEBOOK=https://l.weir.live/facebook
       - FOOTER=Weir Live © 2024
     ports:
       - 8080:3000
