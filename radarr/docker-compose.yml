@@ -15,9 +15,3 @@ services:
       - ${FILE1}:/config
       - ${FILE2}:/plex
     restart: unless-stopped
-    networks:
-      - cloudflare
-
-networks:
-  cloudflare:
-    external: true
