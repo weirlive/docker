@@ -27,8 +27,7 @@ services:
       - SERVER_REGIONS=${REGION}
       - SERVER_HOSTNAMES=${SERVER_HOSTNAMES}
     restart: unless-stopped
-    networks:
-      - cloudflare
+
 
   nzbget:
     image: linuxserver/nzbget
@@ -58,6 +57,3 @@ services:
       - ${FILE3}:/downloads
     restart: unless-stopped
     
-networks:
-  cloudflare:
-    external: true
