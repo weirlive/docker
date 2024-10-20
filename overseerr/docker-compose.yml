@@ -9,6 +9,6 @@ services:
       - TZ=America/New_York
     volumes:
       - ${FILE1}:/config
-    # ports:
-    #  - 5055:5055
+     ports:
+      - 5055:5055
     restart: unless-stopped
