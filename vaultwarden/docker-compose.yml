@@ -1,10 +1,7 @@
-version: "2"
 services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
-    networks:
-      - cloudflare
     volumes:
       - ${FILE1}:/data/
     ports:
@@ -13,7 +10,3 @@ services:
       - SIGNUPS_ALLOWED=false # make sure to disable this on your first build
      # - ADMIN_TOKEN=${TOKEN}
     restart: unless-stopped
-
-networks:
-  cloudflare:
-    external: true
