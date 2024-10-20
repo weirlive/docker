@@ -1,5 +1,4 @@
 ---
-version: "3"
 services:
   overseerr:
     image: lscr.io/linuxserver/overseerr:latest
@@ -13,9 +12,3 @@ services:
     # ports:
     #  - 5055:5055
     restart: unless-stopped
-    networks:
-      - cloudflare
-
-networks:
-  cloudflare:
-    external: true
